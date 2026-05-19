@@ -1,6 +1,6 @@
 let keranjang = [];
 
-const nomorWA = "62881036505315";
+const nomorWA = "6285755453950";
 
 function beliRoti(namaRoti, harga) {
     keranjang.push({
