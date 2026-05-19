@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gachifa Bakery | Segar Setiap Hari</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cooper+Black&family=Poppins:wght@300;400;600;700;800;900&display=swap">
+</head>
+<body>
+
+<nav>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo Gachifa" class="logo-img">
+        <div class="brand-name">
+            <span class="brand-orange">Gachifa</span>
+            <span class="brand-coklat">Bakery</span>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
+</nav>
+
+    <header id="home">
+        <div class="hero-content">
+            <h1>Roti Lembut,<br>Happiness di Setiap Gigitan</h1>
+            <p>Dibuat dengan cinta dan bahan terbaik untuk keluarga tercinta</p>
+            
+            <div class="hero-buttons">
+                <a href="#menu" class="btn">Lihat Menu <i class="fas fa-bread-slice"></i></a>
+                <a href="#contact" class="btn btn-outline">Hubungi Kami <i class="fab fa-whatsapp"></i></a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Tahun</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50K+</span>
+                    <span class="stat-label">Pelanggan</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Menu</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="features">
+        <div class="feature-item">
+            <span>🌾</span>
+            <h4>Bahan Alami</h4>
+            <p>100% tepung berkualitas</p>
+        </div>
+        <div class="feature-item">
+            <span>👨‍🍳</span>
+            <h4>Chef Berpengalaman</h4>
+            <p>Resep turun-temurun</p>
+        </div>
+        <div class="feature-item">
+            <span>🚚</span>
+            <h4>Pengiriman Cepat</h4>
+            <p>Sampai ke rumah Anda</p>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+        <h2 class="section-title">Menu Favorit</h2>
+        <p class="section-desc">Pilih roti kesukaanmu...</p>
+        
+        <div class="product-grid">
+
+            <div class="card">
+                <span class="badge">BEST SELLER</span>
+                <img src="images/roti-tawar-gandum.jpeg" alt="Roti Tawar Gandum">
+                <div class="card-body">
+                    <h3>Roti Tawar Gandum</h3>
+                    <p>Roti tawar tinggi kaya serat, sehat dan lezat.</p>
+                    <p class="min-order">📦 Isi 28 slice</p>
+                    <div class="price">Rp 35.000</div>
+                    <button class="btn-buy" onclick="beliRoti('Roti Tawar Gandum 28 Slice', 'Rp 35.000')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/roti-tawar.jpeg" alt="Roti Tawar">
+                <div class="card-body">
+                    <h3>Roti Tawar</h3>
+                    <p>Roti tawar klasik lembut untuk sarapan.</p>
+                    <p class="min-order">📦 Isi 28 slice</p>
+                    <div class="price">Rp 30.000</div>
+                    <button class="btn-buy" onclick="beliRoti('Roti Tawar 28 Slice', 'Rp 30.000')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge badge-new">MIN ORDER</span>
+                <img src="images/burger-mini.jpeg" alt="Burger Mini">
+                <div class="card-body">
+                    <h3>Burger Mini</h3>
+                    <p>Burger mini padat rasa, cocok untuk camilan.</p>
+                    <p class="min-order">⚠️ Min Order: 20 Pcs / 1 Pax</p>
+                    <div class="price">Rp 2.000 / pcs</div>
+                    <button class="btn-buy" onclick="beliRoti('Burger Mini (Min 20 Pcs)', 'Rp 2.000/pcs')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge badge-new">MIN ORDER</span>
+                <img src="images/hot-dog-mini.jpeg" alt="Hot Dog Mini">
+                <div class="card-body">
+                    <h3>Hot Dog Mini</h3>
+                    <p>Sosis premium dengan roti lembut.</p>
+                    <p class="min-order">⚠️ Min Order: 20 Pcs / 1 Pax</p>
+                    <div class="price">Rp 2.000 / pcs</div>
+                    <button class="btn-buy" onclick="beliRoti('Hot Dog Mini (Min 20 Pcs)', 'Rp 2.000/pcs')">Beli Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="keranjang-section">
+        <div class="keranjang-header">
+            <h2>Keranjang Belanja</h2>
+            <span id="keranjang-count">0 item</span>
+        </div>
+        <div id="keranjang-items">
+            <p style="color: #666;">Keranjang kosong...</p>
+        </div>
+        <button id="checkout-btn" class="btn-checkout" onclick="checkout()" style="display: none;">
+            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+        </button>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title">Tentang Kami</h2>
+        <div class="about-content">
+            <p>Gachifa Bakery adalah toko roti terpercaya sejak tahun 2010. Kami berkomitmen untuk memberikan roti lembut dan berkualitas tinggi kepada setiap pelanggan.</p>
+            <br>
+            <p>Dengan bahan-bahan pilihan dan resep rahasia yang diwariskan dari generasi ke generasi, kami menghadirkan kelezatan roti homemade yang khas dan lezat untuk keluarga tercinta.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <h3><span class="brand-orange">Gachifa</span> <span class="brand-coklat">Bakery</span></h3>
+        <p>Toko roti terpercaya sejak 2010. Menyediakan roti lembut dan lezat untuk keluarga tercinta.</p>
+        
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Jl. Srikoyo Blok K3/8, Oro-Oro Ombo, Kota Batu, Jawa Timur</p>
+            <p><i class="fas fa-phone"></i> 08810 3650 5315</p>
+            <p><i class="fas fa-envelope"></i> gachifabaksry@gmail.com</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2010 Gachifa Bakery. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
