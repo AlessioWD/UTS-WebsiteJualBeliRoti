@@ -49,17 +49,21 @@ nav {
 }
 
 .brand-orange {
-    font-family: 'Cooper Black', 'Poppins', sans-serif;
-    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.7rem;
     color: var(--primary);
+    text-transform: uppercase;
     letter-spacing: 1px;
     margin-right: 5px;
 }
 
 .brand-coklat {
-    font-family: 'Cooper Black', 'Poppins', sans-serif;
-    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.7rem;
     color: var(--accent);
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
