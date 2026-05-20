@@ -548,14 +548,14 @@ footer h3 .brand-coklat {
     }
     
     .logo-container {
-        gap: 3px;
+        gap: 2px;
     }
     
     .logo-img {
-        height: 28px;
+        height: 25px;
     }
     
-    /* GACHIFA BAKERY - DI PERKECIL LAGI */
+    /* GACHIFA BAKERY - DI PERKECIL LAGI LAGI */
     .brand-name {
         display: flex;
         flex-direction: column;
@@ -563,22 +563,22 @@ footer h3 .brand-coklat {
     }
     
     .brand-orange {
-        font-size: 0.55rem;
+        font-size: 0.4rem;
     }
     
     .brand-coklat {
-        font-size: 0.55rem;
+        font-size: 0.4rem;
     }
     
-    /* MENU DI KANAN */
+    /* MENU - DI PERBESAR */
     .nav-links {
         display: flex;
-        gap: 3px;
+        gap: 2px;
         justify-content: flex-end;
     }
     
     .nav-links a {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
         padding: 3px 4px;
     }
     
