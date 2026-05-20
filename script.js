@@ -71,39 +71,46 @@ function checkout() {
     window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
 }
 
-// NAVBAR ACTIVE - PERBAIKAN
+// NAVBAR ACTIVE - UNTUK SEMUA device (HP & Desktop)
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id], header[id], footer[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    // Fungsi untuk hapus semua active
-    function removeAllActive() {
+    function setActiveLink(activeId) {
         navLinks.forEach(link => {
             link.classList.remove('active');
-        });
-    }
-
-    // Fungsi untuk tambah active sesuai id
-    function addActive(id) {
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + id) {
+            if (link.getAttribute('href') === '#' + activeId) {
                 link.classList.add('active');
             }
         });
     }
 
-    // Saat KLIK menu
+    // KLIK/TAP menu - works di HP juga
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Langsung hapus semua active dulu
-            removeAllActive();
+            e.preventDefault();
             
-            // Tambah active ke yang diklik saja
-            this.classList.add('active');
-            
-            // Smooth scroll
             const targetId = this.getAttribute('href').substring(1);
+            
+            setActiveLink(targetId);
+            
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+        
+        // Untuk HP - touch juga
+        link.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href').substring(1);
+            
+            setActiveLink(targetId);
+            
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
                 window.scrollTo({
@@ -114,22 +121,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Saat SCROLL
+    // SCROLL - sama untuk HP & Desktop
     window.addEventListener('scroll', function() {
         let current = '';
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
             
             if (pageYOffset >= (sectionTop - 300)) {
-                current = sectionId;
+                current = section.getAttribute('id');
             }
         });
         
         if (current) {
-            addActive(current);
+            setActiveLink(current);
         }
     });
 });

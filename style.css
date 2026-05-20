@@ -81,7 +81,7 @@ nav {
     font-size: 0.95rem;
     transition: 0.3s;
     position: relative;
-    padding-bottom: 5px;
+    padding: 8px 0;
     display: inline-block;
 }
 
@@ -547,7 +547,22 @@ footer h3 .brand-coklat {
     
     .nav-links {
         gap: 15px;
-        font-size: 0.9rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+    
+    .nav-links a.active {
+        color: var(--primary);
+    }
+    
+    .nav-links a.active::after {
+        width: 100%;
     }
     
     .features {
@@ -558,7 +573,6 @@ footer h3 .brand-coklat {
         flex-direction: column;
     }
     
-    /* FOOTER MOBILE */
     footer {
         padding: 40px 5% 20px;
     }
@@ -608,49 +622,6 @@ footer h3 .brand-coklat {
     }
     
     .footer-bottom {
-        margin-top: 25px;
-        padding-top: 15px;
-        font-size: 0.8rem;
-    }
-    
-    /* KERANJANG MOBILE */
-    .keranjang-section {
-        padding: 20px 5%;
-        margin: 30px 5%;
-    }
-    
-    .keranjang-header h2 {
-        font-size: 1.3rem;
-    }
-    
-    .keranjang-item {
-        padding: 12px;
-    }
-    
-    .keranjang-item div strong {
-        font-size: 0.9rem;
-    }
-    
-    .keranjang-item div small {
-        font-size: 0.8rem;
-    }
-    
-    .btn-hapus {
-        padding: 6px 12px;
-        font-size: 0.8rem;
-    }
-    
-    .keranjang-total {
-        font-size: 1.1rem;
-    }
-    
-    .btn-checkout {
-        padding: 12px 30px;
-        font-size: 1rem;
-    }
-    
-    /* FOOTER ICONS */
-    .contact-info i {
-        margin-right: 8px;
+        margin-top: 25
     }
 }
