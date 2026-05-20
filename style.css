@@ -548,7 +548,6 @@ footer h3 .brand-coklat {
         gap: 2px;
     }
     
-    /* LOGO NAVBAR */
     .logo-img {
         height: 35px !important;
     }
@@ -581,13 +580,13 @@ footer h3 .brand-coklat {
         padding: 2px 4px;
     }
     
-    /* HEADER - TOMBOL DI PERKECIL */
+    /* HEADER - JUDUL DI PERBESAR */
     .hero-content h1 {
-        font-size: 2rem !important;
+        font-size: 2.5rem !important;  /* <- DI PERBESAR (2rem -> 2.5rem) */
     }
     
     .hero-content p {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;  /* <- DI PERBESAR (1rem -> 1.1rem) */
     }
     
     .hero-buttons {
@@ -595,14 +594,15 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
+    /* BUTTON - DI PERKECIL LAGI */
     .btn {
-        padding: 12px 30px !important;
-        font-size: 0.95rem !important;
+        padding: 10px 25px !important;  /* <- DI PERKECIL (12px 30px -> 10px 25px) */
+        font-size: 0.9rem !important;
     }
     
     .btn-outline {
-        padding: 10px 28px !important;
-        font-size: 0.95rem !important;
+        padding: 8px 23px !important;
+        font-size: 0.9rem !important;
     }
     
     /* FOOTER - SAMA DESKTOP */
