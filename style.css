@@ -588,9 +588,17 @@ footer h3 .brand-coklat {
         width: 100% !important;
     }
     
-    /* FOOTER MOBILE */
+    /* FOOTER MOBILE - SAMA DESKTOP */
     footer {
-        padding: 30px 4% 15px;
+        padding: 60px 8% 20px;
+    }
+    
+    .footer-logo img {
+        height: 60px;
+    }
+    
+    footer h3 {
+        font-size: 2rem;
     }
     
     /* SOCIAL LINKS - IKON DI TENGAH */
@@ -605,50 +613,37 @@ footer h3 .brand-coklat {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
         background-color: rgba(255,255,255,0.1);
         color: var(--white);
         border-radius: 50%;
-        margin: 0 5px;
+        margin: 0 10px;
     }
     
     .social-links a i {
-        font-size: 0.9rem;
-    }
-    
-    .social-links a:hover {
-        background-color: var(--primary);
-    }
-    
-    .footer-desc {
-        font-size: 0.8rem;
-    }
-    
-    .contact-info p {
-        font-size: 0.8rem;
-    }
-    
-    .footer-bottom {
-        margin-top: 20px;
-        font-size: 0.75rem;
-    }
-    
-    .keranjang-section {
-        padding: 15px 4%;
-        margin: 20px 4%;
-    }
-    
-    .keranjang-header h2 {
         font-size: 1.2rem;
     }
     
-    .btn-hapus {
-        padding: 5px 8px;
-        font-size: 0.7rem;
+    .footer-desc {
+        font-size: 0.95rem;
     }
     
-    .keranjang-total {
-        font-size: 1rem;
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+    
+    .footer-bottom {
+        margin-top: 40px;
+        font-size: 0.9rem;
+    }
+    
+    .keranjang-section {
+        padding: 30px 8%;
+        margin: 40px 8%;
+    }
+    
+    .keranjang-header h2 {
+        font-size: 1.5rem;
     }
 }
