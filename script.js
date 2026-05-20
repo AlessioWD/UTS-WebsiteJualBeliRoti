@@ -71,42 +71,38 @@ function checkout() {
     window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
 }
 
-// NAVBAR ACTIVE - WORKS DI DESKTOP & MOBILE
+// NAVBAR ACTIVE - PERBAIKAN
 document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id], header[id], footer[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    function setActiveLink() {
-        let scrollPos = window.scrollY + 300;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + sectionId) {
-                        link.classList.add('active');
-                    }
-                });
+    // Fungsi untuk hapus semua active
+    function removeAllActive() {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+    }
+
+    // Fungsi untuk tambah active sesuai id
+    function addActive(id) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
             }
         });
     }
 
-    // Saat klik menu - Langsung aktif
+    // Saat KLIK menu
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
+            // Langsung hapus semua active dulu
+            removeAllActive();
             
-            // Hapus semua active
-            navLinks.forEach(l => l.classList.remove('active'));
-            
-            // Tambah active ke yang diklik
+            // Tambah active ke yang diklik saja
             this.classList.add('active');
             
-            // Scroll ke section
+            // Smooth scroll
             const targetId = this.getAttribute('href').substring(1);
             const targetSection = document.getElementById(targetId);
             if (targetSection) {
@@ -118,11 +114,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Saat scroll - Update active
+    // Saat SCROLL
     window.addEventListener('scroll', function() {
-        setActiveLink();
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (pageYOffset >= (sectionTop - 300)) {
+                current = sectionId;
+            }
+        });
+        
+        if (current) {
+            addActive(current);
+        }
     });
-
-    // Pertama kali load
-    setActiveLink();
 });
