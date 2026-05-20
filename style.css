@@ -548,9 +548,9 @@ footer h3 .brand-coklat {
         gap: 4px;
     }
     
-    /* LOGO - SAMA DESKTOP (55px) */
+    /* LOGO - SEDIKIT LEBIH KECIL DARI DESKTOP */
     .logo-img {
-        height: 55px !important;
+        height: 40px !important;
     }
     
     .brand-name {
@@ -559,13 +559,13 @@ footer h3 .brand-coklat {
         line-height: 1.1;
     }
     
-    /* GACHIFA BAKERY - SAMA DESKTOP (1.7rem) */
+    /* GACHIFA BAKERY - DI PERKECIL (1.7rem -> 0.9rem) */
     .brand-orange {
-        font-size: 1.7rem !important;
+        font-size: 0.9rem !important;
     }
     
     .brand-coklat {
-        font-size: 1.7rem !important;
+        font-size: 0.9rem !important;
     }
     
     .nav-links {
