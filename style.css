@@ -544,7 +544,7 @@ footer h3 .brand-coklat {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.5rem 3%;
+        padding: 0.4rem 2%;
     }
     
     .logo-container {
@@ -552,42 +552,42 @@ footer h3 .brand-coklat {
     }
     
     .logo-img {
-        height: 25px;
+        height: 22px !important;
     }
     
-    /* GACHIFA BAKERY - DI PERKECIL LAGI LAGI */
+    /* GACHIFA BAKERY - SANGAT KECIL */
     .brand-name {
         display: flex;
         flex-direction: column;
-        line-height: 1.1;
+        line-height: 1 !important;
     }
     
     .brand-orange {
-        font-size: 0.4rem;
+        font-size: 0.35rem !important;
     }
     
     .brand-coklat {
-        font-size: 0.4rem;
+        font-size: 0.35rem !important;
     }
     
     /* MENU - DI PERBESAR */
     .nav-links {
         display: flex;
-        gap: 2px;
-        justify-content: flex-end;
+        gap: 2px !important;
+        justify-content: flex-end !important;
     }
     
     .nav-links a {
-        font-size: 0.7rem;
-        padding: 3px 4px;
+        font-size: 0.75rem !important;
+        padding: 2px 3px !important;
     }
     
     .nav-links a.active {
-        color: var(--primary);
+        color: var(--primary) !important;
     }
     
     .nav-links a.active::after {
-        width: 100%;
+        width: 100% !important;
     }
     
     .features {
@@ -603,24 +603,8 @@ footer h3 .brand-coklat {
         padding: 30px 4% 15px;
     }
     
-    .footer-container {
-        max-width: 100%;
-    }
-    
-    .footer-logo img {
-        height: 40px;
-    }
-    
-    footer h3 {
-        font-size: 1.3rem;
-    }
-    
     .footer-desc {
         font-size: 0.8rem;
-    }
-    
-    .contact-info {
-        margin: 15px 0;
     }
     
     .contact-info p {
