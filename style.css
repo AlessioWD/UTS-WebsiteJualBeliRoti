@@ -102,6 +102,14 @@ nav {
     width: 100%;
 }
 
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
 header {
     background: linear-gradient(135deg, rgba(211, 84, 0, 0.9), rgba(141, 110, 99, 0.8)), 
                 url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
@@ -377,12 +385,14 @@ footer h3 {
 }
 
 footer h3 .brand-orange {
-    font-family: 'Cooper Black', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
     color: var(--primary);
 }
 
 footer h3 .brand-coklat {
-    font-family: 'Cooper Black', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
     color: var(--secondary);
 }
 
@@ -532,41 +542,4 @@ footer p {
     .hero-buttons {
         flex-direction: column;
     }
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: 0.3s;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-links a.active {
-    color: var(--primary);
-}
-
-.nav-links a.active::after {
-    width: 100%;
 }
