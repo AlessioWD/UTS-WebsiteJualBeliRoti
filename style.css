@@ -548,7 +548,7 @@ footer h3 .brand-coklat {
         gap: 4px;
     }
     
-    /* LOGO NAVBAR - KECIL */
+    /* LOGO NAVBAR */
     .logo-img {
         height: 40px !important;
     }
@@ -559,26 +559,28 @@ footer h3 .brand-coklat {
         line-height: 1.1;
     }
     
-    /* GACHIFA BAKERY NAVBAR - KECIL */
+    /* GACHIFA BAKERY NAVBAR - SEDIKIT LEBIH KECIL (0.9rem -> 0.8rem) */
     .brand-name .brand-orange {
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
     }
     
     .brand-name .brand-coklat {
-        font-size: 0.9rem !important;
+        font-size: 0.8rem !important;
     }
     
+    /* NAV LINKS - SPASI & FONT DI PERBESAR */
     .nav-links {
         display: flex;
-        gap: 2px;
+        gap: 4px;
         justify-content: flex-end;
     }
     
     .nav-links a {
-        font-size: 0.7rem !important;
+        font-size: 0.8rem !important;
+        padding: 2px 5px;
     }
     
-    /* FOOTER - SAMA DESKTOP (LEBIH BESAR) */
+    /* FOOTER - SAMA DESKTOP */
     footer {
         padding: 60px 8% 20px;
     }
@@ -587,7 +589,7 @@ footer h3 .brand-coklat {
         height: 60px;
     }
     
-    /* GACHIFA BAKERY FOOTER - BESAR (SAMA DESKTOP) */
+    /* GACHIFA BAKERY FOOTER - BESAR */
     footer h3 .brand-orange {
         font-size: 2rem !important;
     }
