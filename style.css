@@ -548,15 +548,15 @@ footer h3 .brand-coklat {
     }
     
     .logo-container {
-        gap: 3px;
+        gap: 4px;
     }
     
     /* LOGO DI PERBESAR */
     .logo-img {
-        height: 30px !important;
+        height: 40px !important;
     }
     
-    /* GACHIFA BAKERY DI PERBESAR SEDIKIT */
+    /* GACHIFA BAKERY DI PERBESAR */
     .brand-name {
         display: flex;
         flex-direction: column;
@@ -564,14 +564,14 @@ footer h3 .brand-coklat {
     }
     
     .brand-orange {
-        font-size: 0.45rem !important;
+        font-size: 0.7rem !important;
     }
     
     .brand-coklat {
-        font-size: 0.45rem !important;
+        font-size: 0.7rem !important;
     }
     
-    /* MENU DI PERKECIL SEDIKIT */
+    /* MENU FONT */
     .nav-links {
         display: flex;
         gap: 2px;
@@ -579,7 +579,7 @@ footer h3 .brand-coklat {
     }
     
     .nav-links a {
-        font-size: 0.65rem !important;
+        font-size: 0.6rem !important;
         padding: 2px 3px;
     }
     
@@ -602,6 +602,23 @@ footer h3 .brand-coklat {
     
     footer {
         padding: 30px 4% 15px;
+    }
+    
+    /* FOOTER GACHIFA BAKERY - SAMA DENGAN DESKTOP */
+    footer .footer-logo img {
+        height: 50px;
+    }
+    
+    footer h3 {
+        font-size: 1.5rem;
+    }
+    
+    footer h3 .brand-orange {
+        font-size: 1.3rem !important;
+    }
+    
+    footer h3 .brand-coklat {
+        font-size: 1.3rem !important;
     }
     
     .footer-desc {
@@ -629,10 +646,6 @@ footer h3 .brand-coklat {
     
     .keranjang-header h2 {
         font-size: 1.2rem;
-    }
-    
-    .keranjang-item div strong {
-        font-size: 0.85rem;
     }
     
     .btn-hapus {
