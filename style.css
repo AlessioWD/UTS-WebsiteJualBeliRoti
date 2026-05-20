@@ -556,4 +556,100 @@ footer h3 .brand-coklat {
     .hero-buttons {
         flex-direction: column;
     }
+    
+    /* FOOTER MOBILE */
+    footer {
+        padding: 40px 5% 20px;
+    }
+    
+    .footer-container {
+        max-width: 100%;
+    }
+    
+    .footer-logo img {
+        height: 45px;
+        margin-bottom: 10px;
+    }
+    
+    footer h3 {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+    
+    footer h3 .brand-orange,
+    footer h3 .brand-coklat {
+        font-size: 1.3rem;
+    }
+    
+    .footer-desc {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+    
+    .contact-info {
+        margin: 20px 0;
+    }
+    
+    .contact-info p {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+    
+    .social-links a {
+        width: 38px;
+        height: 38px;
+        line-height: 38px;
+    }
+    
+    .social-links a i {
+        font-size: 0.9rem;
+    }
+    
+    .footer-bottom {
+        margin-top: 25px;
+        padding-top: 15px;
+        font-size: 0.8rem;
+    }
+    
+    /* KERANJANG MOBILE */
+    .keranjang-section {
+        padding: 20px 5%;
+        margin: 30px 5%;
+    }
+    
+    .keranjang-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .keranjang-item {
+        padding: 12px;
+    }
+    
+    .keranjang-item div strong {
+        font-size: 0.9rem;
+    }
+    
+    .keranjang-item div small {
+        font-size: 0.8rem;
+    }
+    
+    .btn-hapus {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .keranjang-total {
+        font-size: 1.1rem;
+    }
+    
+    .btn-checkout {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    /* FOOTER ICONS */
+    .contact-info i {
+        margin-right: 8px;
+    }
 }

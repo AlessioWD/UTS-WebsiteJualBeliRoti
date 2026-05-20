@@ -71,31 +71,48 @@ function checkout() {
     window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
 }
 
-const sections = document.querySelectorAll('section, header, footer');
-const navLinks = document.querySelectorAll('.nav-links a');
+document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section, header, footer');
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-window.addEventListener('scroll', function() {
-    let current = '';
-    let maxY = -Infinity;
-    
-    sections.forEach(section => {
-        const rect = section.getBoundingClientRect();
-        const scrollY = window.pageYOffset;
-        const offset = scrollY + rect.top - 200;
-        
-        if (offset <= scrollY && offset > maxY) {
-            maxY = offset;
-            current = section.getAttribute('id');
-        } else if (rect.top <= 200 && !current) {
-            current = section.getAttribute('id');
-        }
-    });
-    
+    function removeAllActive() {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+    }
+
+    function addActive(id) {
+        if (!id) return;
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+            }
+        });
+    }
+
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        
-        if (link.getAttribute('href').slice(1) === current) {
-            link.classList.add('active');
-        }
+        link.addEventListener('click', function(e) {
+            removeAllActive();
+            this.classList.add('active');
+        });
     });
+
+    window.addEventListener('scroll', function() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            
+            if (pageYOffset >= (sectionTop - 250)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        addActive(current);
+    });
+
+    if (navLinks.length > 0) {
+        navLinks[0].classList.add('active');
+    }
 });
