@@ -536,10 +536,7 @@ footer h3 .brand-coklat {
 
 /* RESPONSIVE MOBILE - PORTRAIT */
 @media (max-width: 768px) and (orientation: portrait) {
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-    
+    /* NAVBAR */
     nav {
         display: flex;
         justify-content: space-between;
@@ -551,8 +548,9 @@ footer h3 .brand-coklat {
         gap: 4px;
     }
     
+    /* LOGO - SAMA DESKTOP (55px) */
     .logo-img {
-        height: 30px !important;
+        height: 55px !important;
     }
     
     .brand-name {
@@ -561,12 +559,13 @@ footer h3 .brand-coklat {
         line-height: 1.1;
     }
     
+    /* GACHIFA BAKERY - SAMA DESKTOP (1.7rem) */
     .brand-orange {
-        font-size: 0.7rem !important;
+        font-size: 1.7rem !important;
     }
     
     .brand-coklat {
-        font-size: 0.7rem !important;
+        font-size: 1.7rem !important;
     }
     
     .nav-links {
@@ -577,18 +576,9 @@ footer h3 .brand-coklat {
     
     .nav-links a {
         font-size: 0.7rem !important;
-        padding: 2px 4px;
     }
     
-    .nav-links a.active {
-        color: var(--primary) !important;
-    }
-    
-    .nav-links a.active::after {
-        width: 100% !important;
-    }
-    
-    /* FOOTER MOBILE - SAMA DESKTOP */
+    /* FOOTER - SAMA DESKTOP */
     footer {
         padding: 60px 8% 20px;
     }
@@ -601,24 +591,9 @@ footer h3 .brand-coklat {
         font-size: 2rem;
     }
     
-    /* SOCIAL LINKS - IKON DI TENGAH */
-    .social-links {
-        margin: 20px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
     .social-links a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         width: 45px;
         height: 45px;
-        background-color: rgba(255,255,255,0.1);
-        color: var(--white);
-        border-radius: 50%;
-        margin: 0 10px;
     }
     
     .social-links a i {
@@ -631,19 +606,5 @@ footer h3 .brand-coklat {
     
     .contact-info p {
         font-size: 0.9rem;
-    }
-    
-    .footer-bottom {
-        margin-top: 40px;
-        font-size: 0.9rem;
-    }
-    
-    .keranjang-section {
-        padding: 30px 8%;
-        margin: 40px 8%;
-    }
-    
-    .keranjang-header h2 {
-        font-size: 1.5rem;
     }
 }
