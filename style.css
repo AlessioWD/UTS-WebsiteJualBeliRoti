@@ -560,7 +560,6 @@ footer h3 .brand-coklat {
         line-height: 1.1;
     }
     
-    /* GACHIFA BAKERY NAVBAR */
     .brand-name .brand-orange {
         font-size: 0.75rem !important;
     }
@@ -582,54 +581,77 @@ footer h3 .brand-coklat {
         padding: 2px 4px;
     }
     
-    /* FOOTER - DI PERKECIL (YANG DI BAWAH) */
+    /* HEADER - TOMBOL DI PERKECIL */
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        padding: 12px 30px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .btn-outline {
+        padding: 10px 28px !important;
+        font-size: 0.95rem !important;
+    }
+    
+    /* FOOTER - SAMA DESKTOP */
     footer {
-        padding: 40px 5% 15px !important;
+        padding: 60px 8% 20px;
     }
     
     .footer-logo img {
-        height: 50px !important;
+        height: 60px;
     }
     
     footer h3 {
-        font-size: 1.5rem !important;
+        font-size: 2rem;
     }
     
-    footer h3 .brand-orange {
-        font-size: 1.5rem !important;
-    }
-    
+    footer h3 .brand-orange,
     footer h3 .brand-coklat {
-        font-size: 1.5rem !important;
+        font-size: 2rem;
     }
     
     .footer-desc {
-        font-size: 0.85rem !important;
-    }
-    
-    .contact-info {
-        margin: 20px 0;
+        font-size: 0.95rem;
     }
     
     .contact-info p {
-        font-size: 0.8rem !important;
+        font-size: 0.9rem;
     }
     
+    /* SOCIAL LINKS - IKON DI TENGAH */
     .social-links {
-        margin: 15px 0;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .social-links a {
-        width: 35px !important;
-        height: 35px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
     }
     
     .social-links a i {
-        font-size: 0.9rem !important;
+        font-size: 1.2rem;
     }
     
     .footer-bottom {
-        margin-top: 20px;
-        font-size: 0.75rem !important;
+        font-size: 0.9rem;
     }
 }
