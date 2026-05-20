@@ -593,13 +593,15 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
-    /* BUTTON - COMPACT */
-    .btn, .btn-outline {
-        padding: 3px 8px !important;
-        font-size: 0.7rem !important;
-        min-width: 0 !important;
-        width: auto !important;
-        display: inline-flex !important;
+    /* BUTTON - KEMBALI KE SEMULA */
+    .btn {
+        padding: 12px 25px !important;
+        font-size: 0.9rem !important;
+    }
+    
+    .btn-outline {
+        padding: 10px 23px !important;
+        font-size: 0.9rem !important;
     }
     
     /* FOOTER - SAMA DESKTOP */
