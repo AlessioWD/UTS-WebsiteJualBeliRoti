@@ -1,5 +1,4 @@
 let keranjang = [];
-
 const nomorWA = "6285755453950";
 
 function beliRoti(namaRoti, harga) {
@@ -7,18 +6,14 @@ function beliRoti(namaRoti, harga) {
         nama: namaRoti,
         harga: harga
     });
-
+    
     updateTampilanKeranjang();
-
     document.getElementById('keranjang-count').innerText = keranjang.length + ' item';
-
-    alert(namaRoti + " ditambahkan ke keranjang!");
 }
 
 function hapusKeranjang(index) {
     keranjang.splice(index, 1);
     updateTampilanKeranjang();
-
     document.getElementById('keranjang-count').innerText = keranjang.length + ' item';
 }
 
@@ -45,7 +40,7 @@ function updateTampilanKeranjang() {
                 <button onclick="hapusKeranjang(${index})" class="btn-hapus">Hapus</button>
             </div>
         `;
-
+        
         let hargaAngka = item.harga.replace(/[^0-9]/g, '');
         total += parseInt(hargaAngka);
     });
@@ -66,7 +61,6 @@ function checkout() {
     let total = 0;
     
     keranjang.forEach((item) => {
-
         pesan += "    •  " + item.nama + " - " + item.harga + "%0A";
         let hargaAngka = item.harga.replace(/[^0-9]/g, '');
         total += parseInt(hargaAngka);
@@ -82,12 +76,17 @@ const navLinks = document.querySelectorAll('.nav-links a');
 
 window.addEventListener('scroll', function() {
     let current = '';
+    let maxY = -Infinity;
     
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+        const rect = section.getBoundingClientRect();
+        const scrollY = window.pageYOffset;
+        const offset = scrollY + rect.top - 200;
         
-        if (pageYOffset >= (sectionTop - 200)) {
+        if (offset <= scrollY && offset > maxY) {
+            maxY = offset;
+            current = section.getAttribute('id');
+        } else if (rect.top <= 200 && !current) {
             current = section.getAttribute('id');
         }
     });
