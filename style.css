@@ -548,9 +548,9 @@ footer h3 .brand-coklat {
         gap: 4px;
     }
     
-    /* LOGO NAVBAR */
+    /* LOGO NAVBAR - DI PERKECIL SEDIKIT (40px -> 35px) */
     .logo-img {
-        height: 40px !important;
+        height: 35px !important;
     }
     
     .brand-name {
@@ -559,16 +559,16 @@ footer h3 .brand-coklat {
         line-height: 1.1;
     }
     
-    /* GACHIFA BAKERY NAVBAR */
+    /* GACHIFA BAKERY NAVBAR - DI PERKECIL SEDIKIT (0.8rem -> 0.75rem) */
     .brand-name .brand-orange {
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
     }
     
     .brand-name .brand-coklat {
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
     }
     
-    /* NAV LINKS - FONT DI PERKECIL & KE BAWAH */
+    /* NAV LINKS */
     .nav-links {
         display: flex;
         gap: 4px;
