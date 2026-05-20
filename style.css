@@ -534,7 +534,7 @@ footer h3 .brand-coklat {
     box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
 }
 
-/* RESPONSIVE MOBILE - FONT DIUBAH */
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
@@ -542,48 +542,47 @@ footer h3 .brand-coklat {
     
     nav {
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
-        gap: 8px;
-        padding: 0.8rem 5%;
+        align-items: center;
+        gap: 5px;
+        padding: 0.6rem 4%;
     }
     
     .logo-container {
-        gap: 8px;
+        gap: 5px;
     }
     
     .logo-img {
-        height: 45px;
+        height: 35px;
     }
     
-    /* GACHIFA FONT DIKECILIN */
+    /* GACHIFA BAKERY - DI PERKECIL LAGI */
     .brand-name {
         flex-direction: column;
         align-items: flex-start;
         line-height: 1;
     }
     
-    .brand-name span {
-        font-size: 0.9rem;
-    }
-    
     .brand-orange {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
     
     .brand-coklat {
-        font-size: 0.9rem;
+        font-size: 0.7rem;
     }
     
-    /* MENU FONT DI PERBESAR */
+    /* MENU - DI KANAN & DI PERBESAR */
     .nav-links {
-        gap: 10px;
+        display: flex;
+        gap: 6px;
         justify-content: flex-end;
+        white-space: nowrap;
     }
     
     .nav-links a {
-        font-size: 0.85rem;
-        padding: 8px 10px;
+        font-size: 0.75rem;
+        padding: 4px 6px;
     }
     
     .nav-links a.active {
@@ -602,6 +601,7 @@ footer h3 .brand-coklat {
         flex-direction: column;
     }
     
+    /* FOOTER MOBILE */
     footer {
         padding: 40px 5% 20px;
     }
