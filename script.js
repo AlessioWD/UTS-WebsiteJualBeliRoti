@@ -71,48 +71,58 @@ function checkout() {
     window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
 }
 
+// NAVBAR ACTIVE - WORKS DI DESKTOP & MOBILE
 document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section, header, footer');
+    const sections = document.querySelectorAll('section[id], header[id], footer[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    function removeAllActive() {
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-        });
-    }
-
-    function addActive(id) {
-        if (!id) return;
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + id) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            removeAllActive();
-            this.classList.add('active');
-        });
-    });
-
-    window.addEventListener('scroll', function() {
-        let current = '';
+    function setActiveLink() {
+        let scrollPos = window.scrollY + 300;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
             
-            if (pageYOffset >= (sectionTop - 250)) {
-                current = section.getAttribute('id');
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + sectionId) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
-        
-        addActive(current);
+    }
+
+    // Saat klik menu - Langsung aktif
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hapus semua active
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            // Tambah active ke yang diklik
+            this.classList.add('active');
+            
+            // Scroll ke section
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 
-    if (navLinks.length > 0) {
-        navLinks[0].classList.add('active');
-    }
+    // Saat scroll - Update active
+    window.addEventListener('scroll', function() {
+        setActiveLink();
+    });
+
+    // Pertama kali load
+    setActiveLink();
 });

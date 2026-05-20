@@ -50,25 +50,24 @@ nav {
     align-items: center;
 }
 
-.brand-orange {
+.brand-name span {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     font-size: 1.7rem;
-    color: var(--primary);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.brand-orange {
+    color: var(--primary);
     margin-right: 5px;
 }
 
 .brand-coklat {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 1.7rem;
     color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
+/* NAV LINKS */
 .nav-links {
     list-style: none;
     display: flex;
@@ -83,6 +82,7 @@ nav {
     transition: 0.3s;
     position: relative;
     padding-bottom: 5px;
+    display: inline-block;
 }
 
 .nav-links a::after {
@@ -534,6 +534,7 @@ footer h3 .brand-coklat {
     box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
 }
 
+/* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
