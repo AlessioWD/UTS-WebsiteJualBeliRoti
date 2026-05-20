@@ -594,14 +594,14 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
-    /* BUTTON - KANAN/KIRI DI PERKECIL, ATAS/BBAWAH TETAP */
+    /* BUTTON - KANAN/KIRI DI PERKECIL LAGI */
     .btn {
-        padding: 12px 15px !important;  /* 12px atas/bawah, 15px kanan/kiri */
+        padding: 12px 12px !important;  /* <- 12px kanan/kiri (lebih kecil) */
         font-size: 0.85rem !important;
     }
-    
+
     .btn-outline {
-        padding: 12px 15px !important;
+        padding: 12px 12px !important;
         font-size: 0.85rem !important;
     }
     
