@@ -551,12 +551,12 @@ footer h3 .brand-coklat {
         gap: 4px;
     }
     
-    /* LOGO DI PERBESAR */
+    /* LOGO NAVBAR - DI PERKECIL SEDIKIT */
     .logo-img {
-        height: 40px !important;
+        height: 30px !important;
     }
     
-    /* GACHIFA BAKERY DI PERBESAR */
+    /* GACHIFA BAKERY */
     .brand-name {
         display: flex;
         flex-direction: column;
@@ -604,9 +604,9 @@ footer h3 .brand-coklat {
         padding: 30px 4% 15px;
     }
     
-    /* FOOTER GACHIFA BAKERY - SAMA DENGAN DESKTOP */
+    /* LOGO FOOTER - SAMA DENGAN DESKTOP (60px) */
     footer .footer-logo img {
-        height: 50px;
+        height: 60px !important;
     }
     
     footer h3 {
