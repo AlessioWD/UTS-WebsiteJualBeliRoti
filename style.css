@@ -567,7 +567,6 @@ footer h3 .brand-coklat {
         font-size: 0.75rem !important;
     }
     
-    /* NAV LINKS */
     .nav-links {
         display: flex;
         gap: 2px;
@@ -580,7 +579,6 @@ footer h3 .brand-coklat {
         padding: 2px 4px;
     }
     
-    /* HEADER - JUDUL DI PERBESAR */
     .hero-content h1 {
         font-size: 2.5rem !important;
     }
@@ -594,15 +592,19 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
-    /* BUTTON - KANAN/KIRI DI PERKECIL LAGI */
+    /* BUTTON - SANGAT PENDEK */
     .btn {
-        padding: 12px 12px !important;  /* <- 12px kanan/kiri (lebih kecil) */
-        font-size: 0.85rem !important;
+        padding: 8px 10px !important;
+        font-size: 0.75rem !important;
+        min-width: auto !important;
+        width: auto !important;
     }
-
+    
     .btn-outline {
-        padding: 12px 12px !important;
-        font-size: 0.85rem !important;
+        padding: 8px 10px !important;
+        font-size: 0.75rem !important;
+        min-width: auto !important;
+        width: auto !important;
     }
     
     /* FOOTER - SAMA DESKTOP */
@@ -614,12 +616,7 @@ footer h3 .brand-coklat {
         height: 60px;
     }
     
-    footer h3 {
-        font-size: 2rem;
-    }
-    
-    footer h3 .brand-orange,
-    footer h3 .brand-coklat {
+    footer h3, footer h3 .brand-orange, footer h3 .brand-coklat {
         font-size: 2rem;
     }
     
@@ -631,7 +628,6 @@ footer h3 .brand-coklat {
         font-size: 0.9rem;
     }
     
-    /* SOCIAL LINKS - IKON DI TENGAH */
     .social-links {
         margin: 20px 0;
         display: flex;
