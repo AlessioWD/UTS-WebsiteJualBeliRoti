@@ -541,20 +541,40 @@ footer h3 .brand-coklat {
     }
     
     nav {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 0.8rem 5%;
     }
     
+    .logo-container {
+        gap: 8px;
+    }
+    
+    .logo-img {
+        height: 45px;
+    }
+    
+    .brand-name span {
+        font-size: 1.2rem;
+    }
+    
+    /* NAV LINKS - TETAP HORIZONTAL */
     .nav-links {
-        gap: 15px;
-        flex-wrap: wrap;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
         justify-content: center;
         padding: 0;
+        margin: 0;
     }
     
     .nav-links a {
-        font-size: 0.85rem;
-        padding: 8px 12px;
+        font-size: 0.75rem;
+        padding: 8px 10px;
+        white-space: nowrap;
     }
     
     .nav-links a.active {
@@ -573,6 +593,7 @@ footer h3 .brand-coklat {
         flex-direction: column;
     }
     
+    /* FOOTER MOBILE */
     footer {
         padding: 40px 5% 20px;
     }
@@ -622,4 +643,48 @@ footer h3 .brand-coklat {
     }
     
     .footer-bottom {
-        margin-top: 25
+        margin-top: 25px;
+        padding-top: 15px;
+        font-size: 0.8rem;
+    }
+    
+    /* KERANJANG MOBILE */
+    .keranjang-section {
+        padding: 20px 5%;
+        margin: 30px 5%;
+    }
+    
+    .keranjang-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .keranjang-item {
+        padding: 12px;
+    }
+    
+    .keranjang-item div strong {
+        font-size: 0.9rem;
+    }
+    
+    .keranjang-item div small {
+        font-size: 0.8rem;
+    }
+    
+    .btn-hapus {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .keranjang-total {
+        font-size: 1.1rem;
+    }
+    
+    .btn-checkout {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    
+    .contact-info i {
+        margin-right: 8px;
+    }
+}
