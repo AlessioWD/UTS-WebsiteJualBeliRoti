@@ -534,7 +534,7 @@ footer h3 .brand-coklat {
     box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
 }
 
-/* RESPONSIVE MOBILE */
+/* RESPONSIVE MOBILE - FONT DIUBAH */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.5rem;
@@ -544,7 +544,7 @@ footer h3 .brand-coklat {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 10px;
+        gap: 8px;
         padding: 0.8rem 5%;
     }
     
@@ -556,25 +556,34 @@ footer h3 .brand-coklat {
         height: 45px;
     }
     
-    .brand-name span {
-        font-size: 1.2rem;
+    /* GACHIFA FONT DIKECILIN */
+    .brand-name {
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1;
     }
     
-    /* NAV LINKS - TETAP HORIZONTAL */
+    .brand-name span {
+        font-size: 0.9rem;
+    }
+    
+    .brand-orange {
+        font-size: 0.9rem;
+    }
+    
+    .brand-coklat {
+        font-size: 0.9rem;
+    }
+    
+    /* MENU FONT DI PERBESAR */
     .nav-links {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
         gap: 10px;
-        justify-content: center;
-        padding: 0;
-        margin: 0;
+        justify-content: flex-end;
     }
     
     .nav-links a {
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         padding: 8px 10px;
-        white-space: nowrap;
     }
     
     .nav-links a.active {
@@ -593,7 +602,6 @@ footer h3 .brand-coklat {
         flex-direction: column;
     }
     
-    /* FOOTER MOBILE */
     footer {
         padding: 40px 5% 20px;
     }
@@ -648,7 +656,6 @@ footer h3 .brand-coklat {
         font-size: 0.8rem;
     }
     
-    /* KERANJANG MOBILE */
     .keranjang-section {
         padding: 20px 5%;
         margin: 30px 5%;
