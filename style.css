@@ -559,7 +559,7 @@ footer h3 .brand-coklat {
         line-height: 1.1;
     }
     
-    /* GACHIFA BAKERY NAVBAR - SEDIKIT LEBIH KECIL (0.9rem -> 0.8rem) */
+    /* GACHIFA BAKERY NAVBAR */
     .brand-name .brand-orange {
         font-size: 0.8rem !important;
     }
@@ -568,15 +568,16 @@ footer h3 .brand-coklat {
         font-size: 0.8rem !important;
     }
     
-    /* NAV LINKS - SPASI & FONT DI PERBESAR */
+    /* NAV LINKS - FONT DI PERKECIL & KE BAWAH */
     .nav-links {
         display: flex;
         gap: 4px;
         justify-content: flex-end;
+        margin-top: 4px;
     }
     
     .nav-links a {
-        font-size: 0.8rem !important;
+        font-size: 0.7rem !important;
         padding: 2px 5px;
     }
     
@@ -589,7 +590,6 @@ footer h3 .brand-coklat {
         height: 60px;
     }
     
-    /* GACHIFA BAKERY FOOTER - BESAR */
     footer h3 .brand-orange {
         font-size: 2rem !important;
     }
