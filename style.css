@@ -537,28 +537,25 @@ footer h3 .brand-coklat {
 /* RESPONSIVE MOBILE - PORTRAIT */
 @media (max-width: 768px) and (orientation: portrait) {
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     nav {
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         padding: 0.5rem 3%;
-        min-height: 60px;
     }
     
     .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 4px;
+        gap: 3px;
     }
     
     .logo-img {
-        height: 30px;
+        height: 28px;
     }
     
+    /* GACHIFA BAKERY - DI PERKECIL LAGI */
     .brand-name {
         display: flex;
         flex-direction: column;
@@ -566,23 +563,23 @@ footer h3 .brand-coklat {
     }
     
     .brand-orange {
-        font-size: 0.65rem;
+        font-size: 0.55rem;
     }
     
     .brand-coklat {
-        font-size: 0.65rem;
+        font-size: 0.55rem;
     }
     
+    /* MENU DI KANAN */
     .nav-links {
         display: flex;
-        flex-wrap: nowrap;
-        gap: 4px;
+        gap: 3px;
         justify-content: flex-end;
     }
     
     .nav-links a {
-        font-size: 0.65rem;
-        padding: 3px 5px;
+        font-size: 0.6rem;
+        padding: 3px 4px;
     }
     
     .nav-links a.active {
@@ -598,18 +595,8 @@ footer h3 .brand-coklat {
         padding: 40px 5%;
     }
     
-    .feature-item {
-        min-width: 100%;
-    }
-    
     .hero-buttons {
         flex-direction: column;
-        gap: 10px;
-    }
-    
-    .btn {
-        padding: 12px 30px;
-        font-size: 1rem;
     }
     
     footer {
@@ -622,21 +609,14 @@ footer h3 .brand-coklat {
     
     .footer-logo img {
         height: 40px;
-        margin-bottom: 8px;
     }
     
     footer h3 {
         font-size: 1.3rem;
     }
     
-    footer h3 .brand-orange,
-    footer h3 .brand-coklat {
-        font-size: 1.1rem;
-    }
-    
     .footer-desc {
         font-size: 0.8rem;
-        margin-bottom: 15px;
     }
     
     .contact-info {
@@ -645,22 +625,15 @@ footer h3 .brand-coklat {
     
     .contact-info p {
         font-size: 0.8rem;
-        margin-bottom: 6px;
     }
     
     .social-links a {
         width: 35px;
         height: 35px;
-        line-height: 35px;
-    }
-    
-    .social-links a i {
-        font-size: 0.85rem;
     }
     
     .footer-bottom {
         margin-top: 20px;
-        padding-top: 12px;
         font-size: 0.75rem;
     }
     
@@ -669,24 +642,12 @@ footer h3 .brand-coklat {
         margin: 20px 4%;
     }
     
-    .keranjang-header {
-        padding-bottom: 10px;
-    }
-    
     .keranjang-header h2 {
         font-size: 1.2rem;
     }
     
-    .keranjang-item {
-        padding: 10px;
-    }
-    
     .keranjang-item div strong {
         font-size: 0.85rem;
-    }
-    
-    .keranjang-item div small {
-        font-size: 0.75rem;
     }
     
     .btn-hapus {
@@ -696,10 +657,5 @@ footer h3 .brand-coklat {
     
     .keranjang-total {
         font-size: 1rem;
-    }
-    
-    .btn-checkout {
-        padding: 10px 25px;
-        font-size: 0.95rem;
     }
 }
