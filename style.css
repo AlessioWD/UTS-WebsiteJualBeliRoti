@@ -569,10 +569,10 @@ footer h3 .brand-coklat {
         font-size: 0.75rem !important;
     }
     
-    /* NAV LINKS - SPASI DI KURANGIN */
+    /* NAV LINKS */
     .nav-links {
         display: flex;
-        gap: 2px;  /* <- KURANGIN (4px -> 2px) */
+        gap: 2px;
         justify-content: flex-end;
         margin-top: 4px;
     }
@@ -582,41 +582,54 @@ footer h3 .brand-coklat {
         padding: 2px 4px;
     }
     
-    /* FOOTER - SAMA DESKTOP */
+    /* FOOTER - DI PERKECIL (YANG DI BAWAH) */
     footer {
-        padding: 60px 8% 20px;
+        padding: 40px 5% 15px !important;
     }
     
     .footer-logo img {
-        height: 60px;
-    }
-    
-    footer h3 .brand-orange {
-        font-size: 2rem !important;
-    }
-    
-    footer h3 .brand-coklat {
-        font-size: 2rem !important;
+        height: 50px !important;
     }
     
     footer h3 {
-        font-size: 2rem;
+        font-size: 1.5rem !important;
     }
     
-    .social-links a {
-        width: 45px;
-        height: 45px;
+    footer h3 .brand-orange {
+        font-size: 1.5rem !important;
     }
     
-    .social-links a i {
-        font-size: 1.2rem;
+    footer h3 .brand-coklat {
+        font-size: 1.5rem !important;
     }
     
     .footer-desc {
-        font-size: 0.95rem;
+        font-size: 0.85rem !important;
+    }
+    
+    .contact-info {
+        margin: 20px 0;
     }
     
     .contact-info p {
-        font-size: 0.9rem;
+        font-size: 0.8rem !important;
+    }
+    
+    .social-links {
+        margin: 15px 0;
+    }
+    
+    .social-links a {
+        width: 35px !important;
+        height: 35px !important;
+    }
+    
+    .social-links a i {
+        font-size: 0.9rem !important;
+    }
+    
+    .footer-bottom {
+        margin-top: 20px;
+        font-size: 0.75rem !important;
     }
 }
