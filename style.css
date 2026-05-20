@@ -6,12 +6,14 @@
 }
 
 :root {
-    --primary: #D35400;
-    --secondary: #E67E22;
-    --accent: #8D6E63;
-    --cream: #FFF8F0;
+    --primary: #795548;
+    --secondary: #5D4037;
+    --accent: #4E342E;
+    --cream: #EFEBE9;
     --white: #ffffff;
-    --dark: #2C3E50;
+    --dark: #2C1A14;
+    --kuning: #FFC107;
+    --kuningMuda: #FFECB3;
 }
 
 body {
@@ -111,7 +113,7 @@ nav {
 }
 
 header {
-    background: linear-gradient(135deg, rgba(211, 84, 0, 0.9), rgba(141, 110, 99, 0.8)), 
+    background: linear-gradient(135deg, rgba(93, 64, 55, 0.9), rgba(78, 52, 46, 0.85)), 
                 url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
@@ -152,7 +154,7 @@ header {
     font-weight: 600;
     font-size: 1.1rem;
     transition: 0.3s;
-    box-shadow: 0 5px 20px rgba(211, 84, 0, 0.4);
+    box-shadow: 0 5px 20px rgba(121, 85, 72, 0.4);
 }
 
 .btn:hover {
@@ -257,7 +259,7 @@ header {
 
 .card:hover {
     transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(211, 84, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(121, 85, 72, 0.2);
 }
 
 .card img {
@@ -283,11 +285,11 @@ header {
 }
 
 .min-order {
-    color: #e74c3c;
+    color: var(--accent);
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 10px;
-    background-color: #fadbd8;
+    background-color: var(--kuningMuda);
     padding: 5px 10px;
     border-radius: 5px;
     display: inline-block;
@@ -314,16 +316,16 @@ header {
 }
 
 .btn-buy:hover {
-    background: linear-gradient(135deg, var(--accent), var(--primary));
-    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4);
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
 }
 
 .badge {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: #e74c3c;
-    color: white;
+    background-color: var(--kuning);
+    color: var(--dark);
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -332,13 +334,14 @@ header {
 }
 
 .badge-new {
-    background-color: #f39c12;
+    background-color: var(--kuning);
+    color: var(--dark);
 }
 
 .about-section {
     padding: 80px 8%;
     text-align: center;
-    background: linear-gradient(135deg, rgba(211, 84, 0, 0.95), rgba(160, 82, 45, 0.9)),
+    background: linear-gradient(135deg, rgba(93, 64, 55, 0.95), rgba(78, 52, 46, 0.9)),
                 url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
@@ -368,7 +371,7 @@ header {
 }
 
 footer {
-    background: linear-gradient(135deg, var(--dark), #1a252f);
+    background: linear-gradient(135deg, var(--dark), #1a0f0d);
     color: var(--white);
     padding: 60px 8% 20px;
     text-align: center;
@@ -387,13 +390,13 @@ footer h3 {
 footer h3 .brand-orange {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    color: var(--primary);
+    color: #b9b9b9;
 }
 
 footer h3 .brand-coklat {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
-    color: var(--secondary);
+    color: #8D6E63;
 }
 
 footer p {
@@ -486,12 +489,16 @@ footer p {
 }
 
 .btn-hapus {
-    background: #e74c3c;
+    background: var(--secondary);
     color: white;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.btn-hapus:hover {
+    background: var(--primary);
 }
 
 .keranjang-total {
@@ -517,7 +524,7 @@ footer p {
 
 .btn-checkout:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(211, 84, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
 }
 
 @media (max-width: 768px) {
