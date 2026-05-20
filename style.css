@@ -593,7 +593,7 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
-    /* BUTTON - KEMBALI KE SEMULA */
+    /* BUTTON */
     .btn {
         padding: 12px 25px !important;
         font-size: 0.9rem !important;
@@ -602,6 +602,21 @@ footer h3 .brand-coklat {
     .btn-outline {
         padding: 10px 23px !important;
         font-size: 0.9rem !important;
+    }
+    
+    /* EFEK KLIK - SIMPEL */
+    .btn-buy, .btn, .btn-checkout {
+        transition: all 0.2s ease;
+    }
+    
+    .btn-buy:hover, .btn:hover, .btn-checkout:hover {
+        background-color: var(--accent) !important;
+        transform: translateY(-2px);
+    }
+    
+    .btn-buy:active, .btn:active, .btn-checkout:active {
+        transform: scale(0.95);
+        background-color: var(--secondary) !important;
     }
     
     /* FOOTER - SAMA DESKTOP */
