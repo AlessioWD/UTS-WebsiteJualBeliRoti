@@ -582,11 +582,11 @@ footer h3 .brand-coklat {
     
     /* HEADER - JUDUL DI PERBESAR */
     .hero-content h1 {
-        font-size: 2.5rem !important;  /* <- DI PERBESAR (2rem -> 2.5rem) */
+        font-size: 2.5rem !important;
     }
     
     .hero-content p {
-        font-size: 1.1rem !important;  /* <- DI PERBESAR (1rem -> 1.1rem) */
+        font-size: 1.1rem !important;
     }
     
     .hero-buttons {
@@ -594,15 +594,15 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
-    /* BUTTON - DI PERKECIL LAGI */
+    /* BUTTON - LEBIH PENDEK */
     .btn {
-        padding: 10px 25px !important;  /* <- DI PERKECIL (12px 30px -> 10px 25px) */
-        font-size: 0.9rem !important;
+        padding: 8px 18px !important;  /* <- LEBIH PENDEK */
+        font-size: 0.85rem !important;
     }
     
     .btn-outline {
-        padding: 8px 23px !important;
-        font-size: 0.9rem !important;
+        padding: 6px 16px !important;
+        font-size: 0.85rem !important;
     }
     
     /* FOOTER - SAMA DESKTOP */
