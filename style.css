@@ -543,7 +543,7 @@ footer h3 .brand-coklat {
     nav {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         padding: 0.5rem 3%;
     }
     
@@ -551,12 +551,10 @@ footer h3 .brand-coklat {
         gap: 4px;
     }
     
-    /* LOGO NAVBAR - DI PERKECIL SEDIKIT */
     .logo-img {
         height: 30px !important;
     }
     
-    /* GACHIFA BAKERY */
     .brand-name {
         display: flex;
         flex-direction: column;
@@ -571,7 +569,6 @@ footer h3 .brand-coklat {
         font-size: 0.7rem !important;
     }
     
-    /* MENU FONT */
     .nav-links {
         display: flex;
         gap: 2px;
@@ -579,8 +576,8 @@ footer h3 .brand-coklat {
     }
     
     .nav-links a {
-        font-size: 0.6rem !important;
-        padding: 2px 3px;
+        font-size: 0.7rem !important;
+        padding: 2px 4px;
     }
     
     .nav-links a.active {
@@ -591,34 +588,37 @@ footer h3 .brand-coklat {
         width: 100% !important;
     }
     
-    .features {
-        gap: 20px;
-        padding: 40px 5%;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-    }
-    
+    /* FOOTER MOBILE */
     footer {
         padding: 30px 4% 15px;
     }
     
-    /* LOGO FOOTER - SAMA DENGAN DESKTOP (60px) */
-    footer .footer-logo img {
-        height: 60px !important;
+    /* SOCIAL LINKS - IKON DI TENGAH */
+    .social-links {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
-    footer h3 {
-        font-size: 1.5rem;
+    .social-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        height: 35px;
+        background-color: rgba(255,255,255,0.1);
+        color: var(--white);
+        border-radius: 50%;
+        margin: 0 5px;
     }
     
-    footer h3 .brand-orange {
-        font-size: 1.3rem !important;
+    .social-links a i {
+        font-size: 0.9rem;
     }
     
-    footer h3 .brand-coklat {
-        font-size: 1.3rem !important;
+    .social-links a:hover {
+        background-color: var(--primary);
     }
     
     .footer-desc {
@@ -627,11 +627,6 @@ footer h3 .brand-coklat {
     
     .contact-info p {
         font-size: 0.8rem;
-    }
-    
-    .social-links a {
-        width: 35px;
-        height: 35px;
     }
     
     .footer-bottom {
