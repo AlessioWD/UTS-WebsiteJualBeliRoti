@@ -258,6 +258,14 @@ header {
     display: none;
 }
 
+.nav-overlay {
+    display: none;
+}
+
+.nav-close-item {
+    display: none;
+}
+
 .menu-header-row {
     position: relative;
     max-width: 1200px;
@@ -311,7 +319,6 @@ header {
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* ===== Modal Popup Riwayat Pembelian ===== */
 .riwayat-modal-overlay {
     display: none;
     position: fixed;
@@ -732,8 +739,6 @@ footer h3 .brand-coklat {
     transform: scale(0.95);
 }
 
-/* ===== Elemen tambahan untuk website multi-page ===== */
-
 .nav-cart-badge {
     display: inline-block;
     background-color: var(--kuning);
@@ -849,7 +854,7 @@ footer h3 .brand-coklat {
 }
 
 @media (max-width: 768px) {
-    /* NAVBAR */
+    
     nav {
         position: relative;
         display: flex;
@@ -889,35 +894,73 @@ footer h3 .brand-coklat {
         cursor: pointer;
         padding: 6px 8px;
     }
-    
-    .nav-links {
+
+    .nav-overlay {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        inset: 0;
+        background: rgba(44, 26, 20, 0.55);
+        z-index: 1400;
+    }
+
+    .nav-overlay.nav-overlay-show {
+        display: block;
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 0;
         right: 0;
+        height: 100vh;
+        width: 72%;
+        max-width: 300px;
         flex-direction: column;
         gap: 0;
         background: var(--white);
-        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        padding: 8px 0;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+        padding: 70px 0 20px;
         margin: 0;
-        z-index: 999;
+        z-index: 1500;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
     }
     
     .nav-links.nav-open {
-        display: flex;
+        transform: translateX(0);
     }
     
     .nav-links li {
         width: 100%;
     }
+
+    .nav-close-item {
+        display: block;
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: auto !important;
+    }
+
+    .nav-close-btn {
+        background: none;
+        border: none;
+        font-size: 1.6rem;
+        line-height: 1;
+        color: #888;
+        cursor: pointer;
+        padding: 6px 10px;
+    }
+
+    .nav-close-btn:hover {
+        color: var(--primary);
+    }
     
     .nav-links a {
         display: block;
         width: 100%;
-        padding: 14px 6%;
-        font-size: 0.95rem !important;
+        padding: 16px 8%;
+        font-size: 1rem !important;
     }
     
     .nav-links a::after {
@@ -927,8 +970,7 @@ footer h3 .brand-coklat {
     .nav-cart-badge {
         display: none !important;
     }
-    
-    /* HEADER */
+
     .hero-content h1 {
         font-size: 2.5rem !important;
     }
@@ -941,8 +983,7 @@ footer h3 .brand-coklat {
         flex-direction: column;
         gap: 10px;
     }
-    
-    /* BUTTON */
+
     .btn {
         padding: 12px 25px !important;
         font-size: 0.9rem !important;
@@ -996,7 +1037,6 @@ footer h3 .brand-coklat {
         font-size: 0.9rem;
     }
 
-    /* Elemen tambahan multi-page */
     .page-banner {
         padding: 70px 5% 40px;
     }
@@ -1043,7 +1083,6 @@ footer h3 .brand-coklat {
         display: none;
     }
 
-    /* Grid produk 2 kolom di HP supaya tidak jadi 1 kolom panjang ke bawah */
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -1090,7 +1129,6 @@ footer h3 .brand-coklat {
         right: 8px;
     }
 
-    /* Kontak: 2 kolom di HP supaya tidak stack 1 kolom memanjang ke bawah */
     .contact-section {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
