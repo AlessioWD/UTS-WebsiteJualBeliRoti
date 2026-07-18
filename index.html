@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gachifa Bakery | Lembut Setiap Hari</title>
+    <title>Gachifa Bakery | Beranda</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -20,10 +19,10 @@
         </div>
     </div>
     <ul class="nav-links">
-        <li><a href="#home">Beranda</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#contact">Kontak</a></li>
+        <li><a href="index.html" data-page="index">Beranda</a></li>
+        <li><a href="menu.html" data-page="menu">Menu <span id="nav-cart-count" class="nav-cart-badge" style="display:none;">0</span></a></li>
+        <li><a href="about.html" data-page="about">Tentang</a></li>
+        <li><a href="contact.html" data-page="contact">Kontak</a></li>
     </ul>
 </nav>
 
@@ -33,8 +32,8 @@
             <p>Dibuat dengan cinta dan bahan terbaik untuk keluarga tercinta</p>
             
             <div class="hero-buttons">
-                <a href="#menu" class="btn">Lihat Menu <i class="fas fa-bread-slice"></i></a>
-                <a href="#contact" class="btn btn-outline">Hubungi Kami <i class="fab fa-whatsapp"></i></a>
+                <a href="menu.html" class="btn">Lihat Menu <i class="fas fa-bread-slice"></i></a>
+                <a href="contact.html" class="btn btn-outline">Hubungi Kami <i class="fab fa-whatsapp"></i></a>
             </div>
             
             <div class="hero-stats">
@@ -72,82 +71,10 @@
         </div>
     </section>
 
-    <section id="menu" class="menu-section">
-        <h2 class="section-title">Menu Favorit</h2>
-        <p class="section-desc">Pilih roti kesukaanmu...</p>
-        
-        <div class="product-grid">
-
-            <div class="card">
-                <span class="badge">BEST SELLER</span>
-                <img src="images/roti-tawar-gandum.jpeg" alt="Roti Tawar Gandum">
-                <div class="card-body">
-                    <h3>Roti Tawar Gandum</h3>
-                    <p>Roti tawar tinggi kaya serat, sehat dan lezat.</p>
-                    <p class="min-order">📦 Isi 28 slice</p>
-                    <div class="price">Rp 35.000</div>
-                    <button class="btn-buy" onclick="beliRoti('Roti Tawar Gandum 28 Slice', 'Rp 35.000')">Beli Sekarang</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="images/roti-tawar.jpeg" alt="Roti Tawar">
-                <div class="card-body">
-                    <h3>Roti Tawar</h3>
-                    <!-- Tambahkan deskripsi ini -->
-                    <p>Roti tawar klasik lembut untuk sarapan dan tekstur yang halus.</p>
-                    <p class="min-order">📦 Isi 28 slice</p>
-                    <div class="price">Rp 30.000</div>
-                    <button class="btn-buy" onclick="beliRoti('Roti Tawar 28 Slice', 'Rp 30.000')">Beli Sekarang</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="badge badge-new">MIN ORDER</span>
-                <img src="images/burger-mini.jpeg" alt="Burger Mini">
-                <div class="card-body">
-                    <h3>Burger Mini</h3>
-                    <p>Burger mini padat rasa, cocok untuk camilan.</p>
-                    <p class="min-order">⚠️ Min Order: 20 Pcs / 1 Pax</p>
-                    <div class="price">Rp 2.000 / pcs</div>
-                    <button class="btn-buy" onclick="beliRoti('Burger Mini (Min 20 Pcs)', 'Rp 2.000/pcs')">Beli Sekarang</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <span class="badge badge-new">MIN ORDER</span>
-                <img src="images/hot-dog-mini.jpeg" alt="Hot Dog Mini">
-                <div class="card-body">
-                    <h3>Hot Dog Mini</h3>
-                    <p>Sosis premium dengan roti lembut.</p>
-                    <p class="min-order">⚠️ Min Order: 20 Pcs / 1 Pax</p>
-                    <div class="price">Rp 2.000 / pcs</div>
-                    <button class="btn-buy" onclick="beliRoti('Hot Dog Mini (Min 20 Pcs)', 'Rp 2.000/pcs')">Beli Sekarang</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="keranjang-section">
-        <div class="keranjang-header">
-            <h2>Keranjang Belanja</h2>
-            <span id="keranjang-count">0 item</span>
-        </div>
-        <div id="keranjang-items">
-            <p style="color: #666;">Keranjang kosong...</p>
-        </div>
-        <button id="checkout-btn" class="btn-checkout" onclick="checkout()" style="display: none;">
-            <i class="fab fa-whatsapp"></i> Pesan Sekarang
-        </button>
-    </section>
-
-    <section id="about" class="about-section">
-        <h2 class="section-title">Tentang Kami</h2>
-        <div class="about-content">
-            <p>Gachifa Bakery adalah toko roti terpercaya sejak tahun 2010. Kami berkomitmen untuk memberikan roti lembut dan berkualitas tinggi kepada setiap pelanggan.</p>
-            <br>
-            <p>Dengan bahan-bahan pilihan dan resep rahasia yang diwariskan dari generasi ke generasi, kami menghadirkan kelezatan roti homemade yang khas dan lezat untuk keluarga tercinta.</p>
-        </div>
+    <section class="cta-section">
+        <h2>Sudah Lapar Lihat Roti Kami?</h2>
+        <p>Yuk langsung cek menu favorit kami dan pesan sekarang juga!</p>
+        <a href="menu.html" class="btn">Buka Menu <i class="fas fa-arrow-right"></i></a>
     </section>
 
 <footer id="contact">

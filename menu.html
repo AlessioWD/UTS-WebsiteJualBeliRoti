@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gachifa Bakery | Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo Gachifa" class="logo-img">
+        <div class="brand-name">
+            <span class="brand-orange">Gachifa</span>
+            <span class="brand-coklat">Bakery</span>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html" data-page="index">Beranda</a></li>
+        <li><a href="menu.html" data-page="menu">Menu <span id="nav-cart-count" class="nav-cart-badge" style="display:none;">0</span></a></li>
+        <li><a href="about.html" data-page="about">Tentang</a></li>
+        <li><a href="contact.html" data-page="contact">Kontak</a></li>
+    </ul>
+</nav>
+
+    <div class="page-banner">
+        <h1>Menu Kami</h1>
+        <p>Pilih roti favoritmu, langsung masuk keranjang</p>
+    </div>
+
+    <section id="menu" class="menu-section">
+        <div class="menu-header-row">
+            <h2 class="section-title">Menu Favorit</h2>
+            <button class="riwayat-trigger" onclick="openRiwayatModal()" aria-label="Riwayat Pembelian">
+                <i class="fas fa-clock-rotate-left"></i> <span class="riwayat-trigger-text">Riwayat Pembelian</span>
+            </button>
+        </div>
+        <p class="section-desc">Pilih roti kesukaanmu...</p>
+
+        <div class="product-grid">
+
+            <div class="card">
+                <span class="badge">BEST SELLER</span>
+                <img src="images/roti-tawar-gandum.jpeg" alt="Roti Tawar Gandum">
+                <div class="card-body">
+                    <h3>Roti Tawar Gandum</h3>
+                    <p>Roti tawar tinggi kaya serat, sehat dan lezat.</p>
+                    <p class="min-order">📦 Isi 28 slice</p>
+                    <div class="price">Rp 35.000</div>
+                    <button class="btn-buy" onclick="beliRoti('Roti Tawar Gandum 28 Slice', 35000, 1, '')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/roti-tawar.jpeg" alt="Roti Tawar">
+                <div class="card-body">
+                    <h3>Roti Tawar</h3>
+                    <p>Roti tawar klasik lembut untuk sarapan dan tekstur yang halus.</p>
+                    <p class="min-order">📦 Isi 28 slice</p>
+                    <div class="price">Rp 30.000</div>
+                    <button class="btn-buy" onclick="beliRoti('Roti Tawar 28 Slice', 30000, 1, '')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/tawar-cokelat.jpeg" alt="Roti Tawar Cokelat">
+                <div class="card-body">
+                    <h3>Roti Tawar Cokelat</h3>
+                    <p>Roti tawar lembut dengan aroma dan rasa cokelat yang khas.</p>
+                    <p class="min-order">📦 Isi 28 slice</p>
+                    <div class="price">Rp 32.000</div>
+                    <button class="btn-buy" onclick="beliRoti('Roti Tawar Cokelat 28 Slice', 32000, 1, '')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge badge-new">MIN ORDER</span>
+                <img src="images/burger-bun.jpeg" alt="Burger Bun">
+                <div class="card-body">
+                    <h3>Burger Bun</h3>
+                    <p>Roti bun empuk bertabur wijen, siap diisi isian favoritmu.</p>
+                    <p class="min-order">⚠️ Min Order: 10 Pcs / 1 Pax</p>
+                    <div class="price">Rp 2.500 / pcs</div>
+                    <button class="btn-buy" onclick="beliRoti('Burger Bun', 2500, 10, 'pcs')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge badge-new">MIN ORDER</span>
+                <img src="images/burger-mini.jpeg" alt="Burger Mini">
+                <div class="card-body">
+                    <h3>Burger Mini</h3>
+                    <p>Burger mini padat rasa, cocok untuk camilan.</p>
+                    <p class="min-order">⚠️ Min Order: 20 Pcs / 1 Pax</p>
+                    <div class="price">Rp 2.000 / pcs</div>
+                    <button class="btn-buy" onclick="beliRoti('Burger Mini', 2000, 20, 'pcs')">Beli Sekarang</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <span class="badge badge-new">MIN ORDER</span>
+                <img src="images/hot-dog-mini.jpeg" alt="Hot Dog Mini">
+                <div class="card-body">
+                    <h3>Hot Dog Mini</h3>
+                    <p>Roti hot dog lembut dan empuk, siap dipadukan dengan berbagai isian.</p>
+                    <p class="min-order">⚠️ Min Order: 20 Pcs / 1 Pax</p>
+                    <div class="price">Rp 2.000 / pcs</div>
+                    <button class="btn-buy" onclick="beliRoti('Hot Dog Mini', 2000, 20, 'pcs')">Beli Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="riwayat-modal" class="riwayat-modal-overlay" onclick="closeRiwayatModalOutside(event)">
+        <div class="riwayat-modal-box">
+            <div class="riwayat-modal-header">
+                <h3><i class="fas fa-clock-rotate-left"></i> Riwayat Pembelian</h3>
+                <button class="riwayat-modal-close" onclick="closeRiwayatModal()">&times;</button>
+            </div>
+            <div id="riwayat-items">
+                <p class="riwayat-empty">Belum ada riwayat pembelian.</p>
+            </div>
+            <button id="riwayat-clear-btn" class="btn-riwayat-clear" onclick="hapusRiwayat()" style="display:none;">
+                <i class="fas fa-trash"></i> Hapus Riwayat
+            </button>
+        </div>
+    </div>
+
+    <section class="keranjang-section">
+        <div class="keranjang-header">
+            <h2>Keranjang Belanja</h2>
+            <span id="keranjang-count">0 item</span>
+        </div>
+        <div id="keranjang-items">
+            <p style="color: #666;">Keranjang kosong...</p>
+        </div>
+        <button id="checkout-btn" class="btn-checkout" onclick="checkout()" style="display: none;">
+            <i class="fab fa-whatsapp"></i> Pesan Sekarang
+        </button>
+    </section>
+
+<footer id="contact">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <h3><span class="brand-orange">Gachifa</span> <span class="brand-coklat">Bakery</span></h3>
+        <p class="footer-desc">Toko roti terpercaya sejak 2010. Menyediakan roti lembut dan lezat untuk kalian semua. Kami juga salah satu supplier Hotel, Resto, dan Cafe di Kota Batu</p>
+        
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> Jl. Srikoyo Blok K3/8, Oro-Oro Ombo, Kota Batu, Jawa Timur</p>
+            <p><i class="fas fa-phone"></i> 08810 3650 5315</p>
+            <p><i class="fas fa-envelope"></i> gachifabakery@gmail.com</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/gachifabakery.id?igsh=MWFoOW41enE3eWxscw==" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@gachifabakery?_r=1&_t=ZS-96W4dqvTECC" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://wa.me/62881036505315?text=Hallo%20Gachifa%20Bakery!%20Saya%20ingin%20bertanya%20perihal%20roti%20nya%20dong" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2010 Gachifa Bakery. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

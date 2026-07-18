@@ -1,140 +1,236 @@
-let keranjang = [];
-const nomorWA = "6285755453950";
+const nomorWA = "6285741865864";
+const CART_KEY = "gachifaKeranjang";
+const RIWAYAT_KEY = "gachifaRiwayat";
+const RIWAYAT_MAX = 20; // batasi jumlah riwayat yang disimpan biar tidak kebesaran
 
-function beliRoti(namaRoti, harga) {
-    keranjang.push({
-        nama: namaRoti,
-        harga: harga
-    });
-    
+function getKeranjang() {
+    try {
+        const data = localStorage.getItem(CART_KEY);
+        return data ? JSON.parse(data) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function saveKeranjang(keranjang) {
+    localStorage.setItem(CART_KEY, JSON.stringify(keranjang));
+}
+
+/**
+ * Tambah item ke keranjang.
+ * @param {string} namaRoti - Nama produk (untuk ditampilkan)
+ * @param {number} hargaSatuan - Harga per satuan (angka murni)
+ * @param {number} qty - Jumlah minimal / yang dibeli (default 1)
+ * @param {string} satuan - Label satuan, mis. "pcs"
+ */
+function beliRoti(namaRoti, hargaSatuan, qty = 1, satuan = '') {
+    const keranjang = getKeranjang();
+    keranjang.push({ nama: namaRoti, hargaSatuan, qty, satuan });
+    saveKeranjang(keranjang);
+
     updateTampilanKeranjang();
-    document.getElementById('keranjang-count').innerText = keranjang.length + ' item';
+    updateNavBadge();
 }
 
 function hapusKeranjang(index) {
+    const keranjang = getKeranjang();
     keranjang.splice(index, 1);
+    saveKeranjang(keranjang);
+
     updateTampilanKeranjang();
-    document.getElementById('keranjang-count').innerText = keranjang.length + ' item';
+    updateNavBadge();
+}
+
+function formatRupiah(angka) {
+    return 'Rp ' + angka.toLocaleString('id-ID');
+}
+
+function subtotalItem(item) {
+    return item.hargaSatuan * item.qty;
+}
+
+function updateNavBadge() {
+    const badge = document.getElementById('nav-cart-count');
+    if (!badge) return;
+
+    const keranjang = getKeranjang();
+    if (keranjang.length > 0) {
+        badge.innerText = keranjang.length;
+        badge.style.display = 'inline-block';
+    } else {
+        badge.style.display = 'none';
+    }
 }
 
 function updateTampilanKeranjang() {
     const keranjangDiv = document.getElementById('keranjang-items');
     const checkoutBtn = document.getElementById('checkout-btn');
-    
+    const countEl = document.getElementById('keranjang-count');
+    if (!keranjangDiv) return;
+
+    const keranjang = getKeranjang();
+
+    if (countEl) countEl.innerText = keranjang.length + ' item';
+
     if (keranjang.length === 0) {
         keranjangDiv.innerHTML = '<p style="color: #666;">Keranjang kosong...</p>';
         if (checkoutBtn) checkoutBtn.style.display = 'none';
         return;
     }
-    
+
     let total = 0;
     let html = '';
-    
+
     keranjang.forEach((item, index) => {
+        const sub = subtotalItem(item);
+        total += sub;
+
+        const detailHarga = item.qty > 1
+            ? `${formatRupiah(item.hargaSatuan)} x ${item.qty} ${item.satuan} = ${formatRupiah(sub)}`
+            : formatRupiah(sub);
+
         html += `
             <div class="keranjang-item">
                 <div>
                     <strong>${item.nama}</strong>
-                    <br><small>${item.harga}</small>
+                    <br><small>${detailHarga}</small>
                 </div>
                 <button onclick="hapusKeranjang(${index})" class="btn-hapus">Hapus</button>
             </div>
         `;
-        
-        let hargaAngka = item.harga.replace(/[^0-9]/g, '');
-        total += parseInt(hargaAngka);
     });
-    
-    html += `<div class="keranjang-total">Total: Rp ${total.toLocaleString()}</div>`;
+
+    html += `<div class="keranjang-total">Total: ${formatRupiah(total)}</div>`;
     keranjangDiv.innerHTML = html;
-    
+
     if (checkoutBtn) checkoutBtn.style.display = 'inline-block';
 }
 
+function getRiwayat() {
+    try {
+        const data = localStorage.getItem(RIWAYAT_KEY);
+        return data ? JSON.parse(data) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function simpanRiwayat(items, total) {
+    const riwayat = getRiwayat();
+
+    riwayat.unshift({
+        tanggal: new Date().toLocaleString('id-ID', {
+            day: '2-digit', month: 'short', year: 'numeric',
+            hour: '2-digit', minute: '2-digit'
+        }),
+        items: items.map(i => ({ nama: i.nama, qty: i.qty, satuan: i.satuan, hargaSatuan: i.hargaSatuan })),
+        total: total
+    });
+
+    localStorage.setItem(RIWAYAT_KEY, JSON.stringify(riwayat.slice(0, RIWAYAT_MAX)));
+}
+
+function renderRiwayat() {
+    const container = document.getElementById('riwayat-items');
+    if (!container) return;
+
+    const riwayat = getRiwayat();
+    const clearBtn = document.getElementById('riwayat-clear-btn');
+
+    if (riwayat.length === 0) {
+        container.innerHTML = '<p class="riwayat-empty">Belum ada riwayat pembelian.</p>';
+        if (clearBtn) clearBtn.style.display = 'none';
+        return;
+    }
+
+    let html = '';
+    riwayat.forEach(order => {
+        const daftarItem = order.items.map(it => `${it.nama} x${it.qty}`).join(', ');
+        html += `
+            <div class="riwayat-item">
+                <div class="riwayat-tanggal">${order.tanggal}</div>
+                <div class="riwayat-produk">${daftarItem}</div>
+                <div class="riwayat-total">${formatRupiah(order.total)}</div>
+            </div>
+        `;
+    });
+
+    container.innerHTML = html;
+    if (clearBtn) clearBtn.style.display = 'inline-block';
+}
+
+function hapusRiwayat() {
+    if (!confirm('Hapus semua riwayat pembelian?')) return;
+    localStorage.removeItem(RIWAYAT_KEY);
+    renderRiwayat();
+}
+
+function openRiwayatModal() {
+    renderRiwayat();
+    const modal = document.getElementById('riwayat-modal');
+    if (modal) modal.classList.add('riwayat-modal-show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRiwayatModal() {
+    const modal = document.getElementById('riwayat-modal');
+    if (modal) modal.classList.remove('riwayat-modal-show');
+    document.body.style.overflow = '';
+}
+
+function closeRiwayatModalOutside(event) {
+    if (event.target.id === 'riwayat-modal') {
+        closeRiwayatModal();
+    }
+}
+
 function checkout() {
+    const keranjang = getKeranjang();
+
     if (keranjang.length === 0) {
         alert("Keranjang masih kosong!");
         return;
     }
-    
+
     let pesan = "Hallo Gachifa Bakery!%0A%0ASaya ingin memesan:%0A%0A";
     let total = 0;
-    
+
     keranjang.forEach((item) => {
-        pesan += "    •  " + item.nama + " - " + item.harga + "%0A";
-        let hargaAngka = item.harga.replace(/[^0-9]/g, '');
-        total += parseInt(hargaAngka);
+        const sub = subtotalItem(item);
+        total += sub;
+
+        const detail = item.qty > 1
+            ? `${item.nama} (${item.qty} ${item.satuan} x ${formatRupiah(item.hargaSatuan)}) - ${formatRupiah(sub)}`
+            : `${item.nama} - ${formatRupiah(sub)}`;
+
+        pesan += "    •  " + detail + "%0A";
     });
-    
-    pesan += "%0ATotal: Rp " + total.toLocaleString() + "%0A%0APlease confirm my order.";
-    
+
+    pesan += "%0ATotal: " + formatRupiah(total) + "%0A%0APlease confirm my order.";
+
+    simpanRiwayat(keranjang, total);
+    renderRiwayat();
+
     window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
 }
 
-// NAVBAR ACTIVE - UNTUK SEMUA device (HP & Desktop)
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section[id], header[id], footer[id]');
+function setActiveNavByPage() {
     const navLinks = document.querySelectorAll('.nav-links a');
+    let currentPage = window.location.pathname.split('/').pop();
+    if (currentPage === '' || currentPage === '/') currentPage = 'index.html';
+    const currentKey = currentPage.replace('.html', '');
 
-    function setActiveLink(activeId) {
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + activeId) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    // KLIK/TAP menu - works di HP juga
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            
-            setActiveLink(targetId);
-            
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        });
-        
-        // Untuk HP - touch juga
-        link.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href').substring(1);
-            
-            setActiveLink(targetId);
-            
-            const targetSection = document.getElementById(targetId);
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // SCROLL - sama untuk HP & Desktop
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            
-            if (pageYOffset >= (sectionTop - 300)) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        if (current) {
-            setActiveLink(current);
+        link.classList.remove('active');
+        if (link.dataset.page === currentKey) {
+            link.classList.add('active');
         }
     });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setActiveNavByPage();
+    updateNavBadge();
+    updateTampilanKeranjang();
+    renderRiwayat();
 });
