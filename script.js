@@ -1,4 +1,4 @@
-const nomorWA = "6285741865864";
+const nomorWA = "62881036505315";
 const CART_KEY = "gachifaKeranjang";
 const RIWAYAT_KEY = "gachifaRiwayat";
 const RIWAYAT_MAX = 20;
@@ -23,6 +23,7 @@ function beliRoti(namaRoti, hargaSatuan, qty = 1, satuan = '') {
 
     updateTampilanKeranjang();
     updateNavBadge();
+    updateRiwayatBadge();
 }
 
 function hapusKeranjang(index) {
@@ -32,6 +33,7 @@ function hapusKeranjang(index) {
 
     updateTampilanKeranjang();
     updateNavBadge();
+    updateRiwayatBadge();
 }
 
 function formatRupiah(angka) {
@@ -123,12 +125,13 @@ function simpanRiwayat(items, total) {
     localStorage.setItem(RIWAYAT_KEY, JSON.stringify(riwayat.slice(0, RIWAYAT_MAX)));
 }
 
-function updateRiwayatBadge(riwayat) {
+function updateRiwayatBadge() {
     const badge = document.getElementById('riwayat-badge-count');
     if (!badge) return;
 
-    if (riwayat.length > 0) {
-        badge.innerText = riwayat.length;
+    const keranjang = getKeranjang();
+    if (keranjang.length > 0) {
+        badge.innerText = keranjang.length;
         badge.style.display = 'flex';
     } else {
         badge.style.display = 'none';
@@ -137,8 +140,6 @@ function updateRiwayatBadge(riwayat) {
 
 function renderRiwayat() {
     const riwayat = getRiwayat();
-
-    updateRiwayatBadge(riwayat);
 
     const container = document.getElementById('riwayat-items');
     if (!container) return;
@@ -257,6 +258,7 @@ function setActiveNavByPage() {
 document.addEventListener('DOMContentLoaded', function() {
     setActiveNavByPage();
     updateNavBadge();
+    updateRiwayatBadge();
     updateTampilanKeranjang();
     renderRiwayat();
 });
