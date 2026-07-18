@@ -258,6 +258,10 @@ header {
     display: none;
 }
 
+.nav-icon {
+    display: none;
+}
+
 .nav-overlay {
     display: none;
 }
@@ -913,15 +917,17 @@ footer h3 .brand-coklat {
         top: 0;
         right: 0;
         height: 100vh;
-        width: 72%;
-        max-width: 300px;
+        width: 60%;
+        max-width: 235px;
         flex-direction: column;
         gap: 0;
         background: var(--white);
         box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-        padding: 70px 0 20px;
+        padding: 0;
         margin: 0;
         z-index: 1500;
+        border-radius: 18px 0 0 18px;
+        overflow: hidden;
         transform: translateX(100%);
         transition: transform 0.3s ease;
     }
@@ -934,22 +940,38 @@ footer h3 .brand-coklat {
         width: 100%;
     }
 
+    .nav-links li:not(.nav-close-item) {
+        border-bottom: 1px solid var(--cream);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
     .nav-close-item {
-        display: block;
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        width: auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100% !important;
+        padding: 16px 18px;
+        background: var(--cream);
+    }
+
+    .nav-panel-title {
+        font-weight: 700;
+        color: var(--primary);
+        font-size: 1rem;
+        letter-spacing: 0.2px;
     }
 
     .nav-close-btn {
         background: none;
         border: none;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         line-height: 1;
         color: #888;
         cursor: pointer;
-        padding: 6px 10px;
+        padding: 0 2px;
     }
 
     .nav-close-btn:hover {
@@ -957,10 +979,26 @@ footer h3 .brand-coklat {
     }
     
     .nav-links a {
-        display: block;
+        display: flex;
+        align-items: center;
         width: 100%;
-        padding: 16px 8%;
-        font-size: 1rem !important;
+        padding: 13px 18px;
+        font-size: 0.9rem !important;
+        color: var(--dark);
+    }
+
+    .nav-icon {
+        display: inline-block;
+        width: 18px;
+        margin-right: 10px;
+        text-align: center;
+        color: var(--primary);
+        font-size: 0.85rem;
+    }
+
+    .nav-links a.active {
+        color: var(--primary);
+        background: var(--kuningMuda);
     }
     
     .nav-links a::after {
