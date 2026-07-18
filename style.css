@@ -1059,6 +1059,10 @@ footer h3 .brand-coklat {
         margin-top: 46px;
     }
 
+    .menu-section {
+        padding: 20px 5% 50px;
+    }
+
     .menu-header-row .section-title {
         font-size: 1.5rem;
     }
