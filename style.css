@@ -254,6 +254,10 @@ header {
     margin: 0 auto;
 }
 
+.nav-hamburger {
+    display: none;
+}
+
 .menu-header-row {
     position: relative;
     max-width: 1200px;
@@ -288,6 +292,26 @@ header {
     color: var(--white);
 }
 
+.riwayat-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--kuning);
+    color: var(--dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ===== Modal Popup Riwayat Pembelian ===== */
 .riwayat-modal-overlay {
     display: none;
     position: fixed;
@@ -708,6 +732,8 @@ footer h3 .brand-coklat {
     transform: scale(0.95);
 }
 
+/* ===== Elemen tambahan untuk website multi-page ===== */
+
 .nav-cart-badge {
     display: inline-block;
     background-color: var(--kuning);
@@ -823,48 +849,86 @@ footer h3 .brand-coklat {
 }
 
 @media (max-width: 768px) {
+    /* NAVBAR */
     nav {
+        position: relative;
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
-        padding: 0.5rem 3%;
+        align-items: center;
+        padding: 0.6rem 4%;
     }
     
     .logo-container {
-        gap: 2px;
+        gap: 8px;
     }
     
     .logo-img {
-        height: 35px !important;
+        height: 38px !important;
     }
     
     .brand-name {
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        line-height: 1.1;
+        flex-direction: row;
+        align-items: center;
+        line-height: 1.2;
     }
     
-    .brand-name .brand-orange {
-        font-size: 0.75rem !important;
-    }
-    
+    .brand-name .brand-orange,
     .brand-name .brand-coklat {
-        font-size: 0.75rem !important;
+        font-size: 1rem !important;
+    }
+    
+    .nav-hamburger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        color: var(--primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 6px 8px;
     }
     
     .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: var(--white);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        padding: 8px 0;
+        margin: 0;
+        z-index: 999;
+    }
+    
+    .nav-links.nav-open {
         display: flex;
-        gap: 2px;
-        justify-content: flex-end;
-        margin-top: 4px;
+    }
+    
+    .nav-links li {
+        width: 100%;
     }
     
     .nav-links a {
-        font-size: 0.7rem !important;
-        padding: 2px 4px;
+        display: block;
+        width: 100%;
+        padding: 14px 6%;
+        font-size: 0.95rem !important;
     }
     
+    .nav-links a::after {
+        display: none;
+    }
+    
+    .nav-cart-badge {
+        display: none !important;
+    }
+    
+    /* HEADER */
     .hero-content h1 {
         font-size: 2.5rem !important;
     }
@@ -878,6 +942,7 @@ footer h3 .brand-coklat {
         gap: 10px;
     }
     
+    /* BUTTON */
     .btn {
         padding: 12px 25px !important;
         font-size: 0.9rem !important;
@@ -931,6 +996,7 @@ footer h3 .brand-coklat {
         font-size: 0.9rem;
     }
 
+    /* Elemen tambahan multi-page */
     .page-banner {
         padding: 70px 5% 40px;
     }
@@ -944,8 +1010,7 @@ footer h3 .brand-coklat {
     }
 
     .nav-cart-badge {
-        font-size: 0.6rem !important;
-        padding: 1px 5px !important;
+        display: none !important;
     }
 
     .menu-header-row {
@@ -978,6 +1043,7 @@ footer h3 .brand-coklat {
         display: none;
     }
 
+    /* Grid produk 2 kolom di HP supaya tidak jadi 1 kolom panjang ke bawah */
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
@@ -1024,6 +1090,7 @@ footer h3 .brand-coklat {
         right: 8px;
     }
 
+    /* Kontak: 2 kolom di HP supaya tidak stack 1 kolom memanjang ke bawah */
     .contact-section {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;

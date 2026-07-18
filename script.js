@@ -1,8 +1,10 @@
-const nomorWA = "6285741865864";
+const nomorWA = "62881036505315"; // Nomor WA resmi (samakan dengan yang di footer/kontak)
 const CART_KEY = "gachifaKeranjang";
 const RIWAYAT_KEY = "gachifaRiwayat";
 const RIWAYAT_MAX = 20; // batasi jumlah riwayat yang disimpan biar tidak kebesaran
 
+// ===== Ambil & simpan keranjang dari localStorage =====
+// Keranjang perlu tetap ada walau user pindah halaman (index -> menu -> dst)
 function getKeranjang() {
     try {
         const data = localStorage.getItem(CART_KEY);
@@ -49,6 +51,8 @@ function subtotalItem(item) {
     return item.hargaSatuan * item.qty;
 }
 
+// Badge kecil di navbar (link "Menu") yang menunjukkan jumlah item di keranjang,
+// muncul di semua halaman supaya user tetap sadar keranjangnya berisi sesuatu.
 function updateNavBadge() {
     const badge = document.getElementById('nav-cart-count');
     if (!badge) return;
@@ -62,11 +66,12 @@ function updateNavBadge() {
     }
 }
 
+// Hanya dipanggil di halaman yang punya elemen keranjang (menu.html)
 function updateTampilanKeranjang() {
     const keranjangDiv = document.getElementById('keranjang-items');
     const checkoutBtn = document.getElementById('checkout-btn');
     const countEl = document.getElementById('keranjang-count');
-    if (!keranjangDiv) return;
+    if (!keranjangDiv) return; // halaman ini tidak punya section keranjang
 
     const keranjang = getKeranjang();
 
@@ -106,6 +111,7 @@ function updateTampilanKeranjang() {
     if (checkoutBtn) checkoutBtn.style.display = 'inline-block';
 }
 
+// ===== Riwayat Pembelian (tersimpan di localStorage, terpisah dari keranjang) =====
 function getRiwayat() {
     try {
         const data = localStorage.getItem(RIWAYAT_KEY);
@@ -130,11 +136,28 @@ function simpanRiwayat(items, total) {
     localStorage.setItem(RIWAYAT_KEY, JSON.stringify(riwayat.slice(0, RIWAYAT_MAX)));
 }
 
-function renderRiwayat() {
-    const container = document.getElementById('riwayat-items');
-    if (!container) return;
+// Badge jumlah riwayat di tombol jam (ikon Riwayat Pembelian)
+function updateRiwayatBadge(riwayat) {
+    const badge = document.getElementById('riwayat-badge-count');
+    if (!badge) return;
 
+    if (riwayat.length > 0) {
+        badge.innerText = riwayat.length;
+        badge.style.display = 'flex';
+    } else {
+        badge.style.display = 'none';
+    }
+}
+
+function renderRiwayat() {
     const riwayat = getRiwayat();
+
+    // Badge di tombol jam ada di semua halaman yang punya panel riwayat (menu.html)
+    updateRiwayatBadge(riwayat);
+
+    const container = document.getElementById('riwayat-items');
+    if (!container) return; // halaman ini tidak punya panel riwayat
+
     const clearBtn = document.getElementById('riwayat-clear-btn');
 
     if (riwayat.length === 0) {
@@ -165,19 +188,21 @@ function hapusRiwayat() {
     renderRiwayat();
 }
 
+// ===== Modal popup Riwayat Pembelian =====
 function openRiwayatModal() {
     renderRiwayat();
     const modal = document.getElementById('riwayat-modal');
     if (modal) modal.classList.add('riwayat-modal-show');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden'; // kunci scroll halaman di belakang popup
 }
 
 function closeRiwayatModal() {
     const modal = document.getElementById('riwayat-modal');
     if (modal) modal.classList.remove('riwayat-modal-show');
-    document.body.style.overflow = '';
+    document.body.style.overflow = ''; // buka kunci scroll lagi
 }
 
+// Tutup modal kalau area gelap di luar box diklik
 function closeRiwayatModalOutside(event) {
     if (event.target.id === 'riwayat-modal') {
         closeRiwayatModal();
@@ -214,8 +239,16 @@ function checkout() {
     window.open("https://wa.me/" + nomorWA + "?text=" + pesan, '_blank');
 }
 
+// ===== Hamburger menu mobile =====
+function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) navLinks.classList.toggle('nav-open');
+}
+
+// ===== Highlight menu navbar sesuai halaman yang sedang dibuka =====
 function setActiveNavByPage() {
     const navLinks = document.querySelectorAll('.nav-links a');
+    // Ambil nama file halaman saat ini, mis. "menu.html". Kosong / "/" dianggap index.html
     let currentPage = window.location.pathname.split('/').pop();
     if (currentPage === '' || currentPage === '/') currentPage = 'index.html';
     const currentKey = currentPage.replace('.html', '');
@@ -231,6 +264,6 @@ function setActiveNavByPage() {
 document.addEventListener('DOMContentLoaded', function() {
     setActiveNavByPage();
     updateNavBadge();
-    updateTampilanKeranjang();
-    renderRiwayat();
+    updateTampilanKeranjang(); // no-op kalau halaman tidak punya section keranjang
+    renderRiwayat(); // no-op kalau halaman tidak punya panel riwayat
 });
