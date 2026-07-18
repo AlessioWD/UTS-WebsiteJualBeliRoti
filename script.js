@@ -1,4 +1,4 @@
-const nomorWA = "62881036505315";
+const nomorWA = "6285741865864";
 const CART_KEY = "gachifaKeranjang";
 const RIWAYAT_KEY = "gachifaRiwayat";
 const RIWAYAT_MAX = 20;
