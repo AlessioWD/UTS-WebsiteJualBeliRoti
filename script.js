@@ -24,7 +24,9 @@ function beliRoti(namaRoti, hargaSatuan, qty = 1, satuan = '') {
     updateTampilanKeranjang();
     updateNavBadge();
     updateRiwayatBadge();
-    showToast(namaRoti + ' ditambahkan ke keranjang');
+
+    const infoJumlah = satuan ? ` (${qty} ${satuan})` : '';
+    showToast(namaRoti + infoJumlah + ' ditambahkan ke keranjang');
 }
 
 function hapusKeranjang(index) {
