@@ -24,6 +24,7 @@ function beliRoti(namaRoti, hargaSatuan, qty = 1, satuan = '') {
     updateTampilanKeranjang();
     updateNavBadge();
     updateRiwayatBadge();
+    showToast(namaRoti + ' ditambahkan ke keranjang');
 }
 
 function hapusKeranjang(index) {
@@ -253,6 +254,54 @@ function setActiveNavByPage() {
             link.classList.add('active');
         }
     });
+}
+
+let activeCategory = 'all';
+
+function setCategory(cat, btnEl) {
+    activeCategory = cat;
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    filterMenu();
+}
+
+function filterMenu() {
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const cards = document.querySelectorAll('.product-grid .card');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+        const cat = card.dataset.category || '';
+        const name = card.dataset.name || '';
+        const matchCategory = activeCategory === 'all' || cat === activeCategory;
+        const matchSearch = searchTerm === '' || name.includes(searchTerm);
+
+        if (matchCategory && matchSearch) {
+            card.style.display = '';
+            visibleCount++;
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    const noResults = document.getElementById('no-results');
+    if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+let toastTimeout;
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+
+    toast.textContent = message;
+    toast.classList.add('toast-show');
+
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove('toast-show');
+    }, 2500);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

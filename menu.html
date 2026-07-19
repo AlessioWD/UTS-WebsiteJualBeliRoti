@@ -50,9 +50,22 @@
         </div>
         <p class="section-desc">Pilih roti kesukaanmu...</p>
 
-        <div class="product-grid">
+        <div class="menu-toolbar">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari roti..." oninput="filterMenu()">
+            </div>
+            <div class="category-filters">
+                <button class="category-btn active" data-category="all" onclick="setCategory('all', this)">Semua</button>
+                <button class="category-btn" data-category="tawar" onclick="setCategory('tawar', this)">Roti Tawar</button>
+                <button class="category-btn" data-category="bun" onclick="setCategory('bun', this)">Bun & Roti Kecil</button>
+            </div>
+        </div>
 
-            <div class="card">
+        <div class="product-grid">
+            <p id="no-results" class="no-results" style="display:none;">Tidak ada roti yang cocok dengan pencarianmu.</p>
+
+            <div class="card" data-category="tawar" data-name="roti tawar gandum">
                 <span class="badge">BEST SELLER</span>
                 <img src="images/roti-tawar-gandum.jpeg" alt="Roti Tawar Gandum">
                 <div class="card-body">
@@ -64,7 +77,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="tawar" data-name="roti tawar">
                 <img src="images/roti-tawar.jpeg" alt="Roti Tawar">
                 <div class="card-body">
                     <h3>Roti Tawar</h3>
@@ -75,7 +88,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="tawar" data-name="roti tawar cokelat">
                 <img src="images/tawar-cokelat.jpeg" alt="Roti Tawar Cokelat">
                 <div class="card-body">
                     <h3>Roti Tawar Cokelat</h3>
@@ -86,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="bun" data-name="burger bun">
                 <span class="badge badge-new">MIN ORDER</span>
                 <img src="images/burger-bun.jpeg" alt="Burger Bun">
                 <div class="card-body">
@@ -98,7 +111,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="bun" data-name="burger mini">
                 <span class="badge badge-new">MIN ORDER</span>
                 <img src="images/burger-mini.jpeg" alt="Burger Mini">
                 <div class="card-body">
@@ -110,7 +123,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-category="bun" data-name="hot dog mini">
                 <span class="badge badge-new">MIN ORDER</span>
                 <img src="images/hot-dog-mini.jpeg" alt="Hot Dog Mini">
                 <div class="card-body">
@@ -151,6 +164,8 @@
             <i class="fab fa-whatsapp"></i> Pesan Sekarang
         </button>
     </section>
+
+    <div id="toast" class="toast"></div>
 
 <footer id="contact">
     <div class="footer-container">
