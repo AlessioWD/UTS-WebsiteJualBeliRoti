@@ -6,7 +6,6 @@
     <title>Gachifa Bakery | Beranda</title>
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -35,7 +34,22 @@
     </ul>
 </nav>
 
+<div class="marquee">
+    <div class="marquee-track">
+        <span><i class="fas fa-circle"></i>ROTI HANGAT SETIAP HARI<i class="fas fa-circle"></i>DIBUAT DENGAN CINTA<i class="fas fa-circle"></i>SUPPLIER HOTEL, RESTO & CAFE<i class="fas fa-circle"></i>SEJAK 2010<i class="fas fa-circle"></i>PESAN VIA WHATSAPP</span>
+        <span aria-hidden="true"><i class="fas fa-circle"></i>ROTI HANGAT SETIAP HARI<i class="fas fa-circle"></i>DIBUAT DENGAN CINTA<i class="fas fa-circle"></i>SUPPLIER HOTEL, RESTO & CAFE<i class="fas fa-circle"></i>SEJAK 2010<i class="fas fa-circle"></i>PESAN VIA WHATSAPP</span>
+    </div>
+</div>
+
     <header id="home">
+        <div class="floaty-shapes" aria-hidden="true">
+            <span class="floaty" style="top:14%; left:8%;">🍞</span>
+            <span class="floaty floaty-slow floaty-reverse" style="top:65%; left:12%;">🌾</span>
+            <span class="floaty floaty-slow" style="top:20%; right:10%;">🥐</span>
+            <span class="floaty floaty-reverse" style="top:70%; right:14%;">🧁</span>
+            <span class="floaty floaty-slow" style="top:45%; left:4%;">✦</span>
+            <span class="floaty" style="top:38%; right:6%;">✦</span>
+        </div>
         <div class="hero-content">
             <h1>Roti Lembut,<br>Happiness di Setiap Gigitan</h1>
             <p>Dibuat dengan cinta dan bahan terbaik untuk keluarga tercinta</p>
@@ -62,25 +76,25 @@
         </div>
     </header>
 
-    <section class="features">
-        <div class="feature-item">
+    <section class="features reveal-stagger reveal">
+        <div class="feature-item reveal-child">
             <span>🌾</span>
             <h4>Bahan Alami</h4>
             <p>100% tepung berkualitas</p>
         </div>
-        <div class="feature-item">
+        <div class="feature-item reveal-child">
             <span>👨‍🍳</span>
             <h4>Chef Berpengalaman</h4>
             <p>Resep turun-temurun</p>
         </div>
-        <div class="feature-item">
+        <div class="feature-item reveal-child">
             <span>🚚</span>
             <h4>Pengiriman Cepat</h4>
             <p>Sampai ke rumah Anda</p>
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section reveal">
         <h2>Sudah Lapar Lihat Roti Kami?</h2>
         <p>Yuk langsung cek menu favorit kami dan pesan sekarang juga!</p>
         <a href="menu.html" class="btn">Buka Menu <i class="fas fa-arrow-right"></i></a>
@@ -88,33 +102,46 @@
 
 <footer id="contact">
     <div class="footer-container">
-        <div class="footer-logo">
-            <img src="images/logo.png" alt="Logo">
+        <div class="footer-col-brand">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <h3><span class="brand-orange">Gachifa</span> <span class="brand-coklat">Bakery</span></h3>
+            <p class="footer-desc">Toko roti terpercaya sejak 2010. Menyediakan roti lembut dan lezat untuk kalian semua. Kami juga salah satu supplier Hotel, Resto, dan Cafe di Kota Batu.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/gachifabakery.id/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@gachifabakery?_r=1&_t=ZS-96W4dqvTECC" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.me/62881036505315?text=Hallo%20Gachifa%20Bakery!%20Saya%20ingin%20bertanya%20perihal%20roti%20nya%20dong" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
         </div>
-        <h3><span class="brand-orange">Gachifa</span> <span class="brand-coklat">Bakery</span></h3>
-        <p class="footer-desc">Toko roti terpercaya sejak 2010. Menyediakan roti lembut dan lezat untuk kalian semua. Kami juga salah satu supplier Hotel, Resto, dan Cafe di Kota Batu</p>
-        
-        <div class="contact-info">
-            <p><i class="fas fa-map-marker-alt"></i> Jl. Srikoyo Blok K3/8, Oro-Oro Ombo, Kota Batu, Jawa Timur</p>
-            <p><i class="fas fa-phone"></i> 08810 3650 5315</p>
-            <p><i class="fas fa-envelope"></i> gachifabakery@gmail.com</p>
+
+        <div class="footer-col">
+            <h4 class="footer-heading">Jelajahi</h4>
+            <ul class="footer-links">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">Tentang</a></li>
+                <li><a href="contact.html">Kontak</a></li>
+            </ul>
         </div>
-        
-        <div class="social-links">
-            <a href="https://www.instagram.com/gachifabakery.id/" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://www.tiktok.com/@gachifabakery?_r=1&_t=ZS-96W4dqvTECC" target="_blank">
-                <i class="fab fa-tiktok"></i>
-            </a>
-            <a href="https://wa.me/62881036505315?text=Hallo%20Gachifa%20Bakery!%20Saya%20ingin%20bertanya%20perihal%20roti%20nya%20dong" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+
+        <div class="footer-col">
+            <h4 class="footer-heading">Kontak</h4>
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Jl. Srikoyo Blok K3/8, Oro-Oro Ombo, Kota Batu, Jawa Timur</p>
+                <p><i class="fas fa-phone"></i> 08810 3650 5315</p>
+                <p><i class="fas fa-envelope"></i> gachifabakery@gmail.com</p>
+            </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2010 Gachifa Bakery. All Rights Reserved.</p>
-        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2010 Gachifa Bakery. All Rights Reserved.</p>
     </div>
 </footer>
 

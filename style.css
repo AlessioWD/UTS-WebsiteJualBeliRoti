@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 :root {
@@ -10,25 +12,78 @@
     --secondary: #6B4226;
     --accent: #4E342E;
     --cream: #FAF6F2;
+    --cream-2: #F3EAE0;
     --white: #ffffff;
     --dark: #2C1A14;
     --kuning: #D97B4F;
     --kuningMuda: #F3D9C4;
+    --shadow-soft: 0 10px 30px rgba(139, 94, 60, 0.12);
+    --shadow-lift: 0 20px 40px rgba(139, 94, 60, 0.22);
+    --radius-lg: 28px;
+    --radius-md: 18px;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--cream);
     color: var(--dark);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
+h1, h2, h3, h4, .brand-name span, .btn, .logo-container, footer h3 {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* ===== REVEAL ON SCROLL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-stagger.revealed .reveal-child {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-child {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-stagger.revealed .reveal-child:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.revealed .reveal-child:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.revealed .reveal-child:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.revealed .reveal-child:nth-child(4) { transition-delay: 0.35s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-child {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .floaty { animation: none !important; }
+    .marquee-track { animation: none !important; }
+}
+
+/* ===== NAV ===== */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 8%;
+    padding: 0.7rem 8%;
     background-color: var(--white);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 20px rgba(44, 26, 20, 0.07);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -41,7 +96,7 @@ nav {
 }
 
 .logo-img {
-    height: 55px;
+    height: 52px;
     width: auto;
 }
 
@@ -51,11 +106,9 @@ nav {
 }
 
 .brand-name span {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 0.2px;
 }
 
 .brand-orange {
@@ -70,7 +123,8 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 8px;
 }
 
 .nav-links a {
@@ -80,71 +134,136 @@ nav {
     font-size: 0.95rem;
     transition: 0.3s;
     position: relative;
-    padding: 8px 0;
+    padding: 10px 18px;
     display: inline-block;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
+    border-radius: 50px;
 }
 
 .nav-links a:hover {
     color: var(--primary);
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+    background: var(--cream-2);
 }
 
 .nav-links a.active {
-    color: var(--primary);
-}
-
-.nav-links a.active::after {
-    width: 100%;
+    color: var(--white);
+    background: var(--primary);
 }
 
 .nav-links a.active .nav-cart-badge {
     display: none !important;
 }
 
+/* ===== MARQUEE ===== */
+.marquee {
+    background: var(--dark);
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    padding: 10px 0;
+}
+
+.marquee-track {
+    display: inline-flex;
+    animation: marquee-scroll 22s linear infinite;
+}
+
+.marquee-track span {
+    color: var(--cream);
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.marquee-track span i {
+    color: var(--kuning);
+    font-size: 0.7rem;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== HEADER / HERO ===== */
 header {
-    background: linear-gradient(135deg, rgba(93, 64, 55, 0.9), rgba(78, 52, 46, 0.85)), 
+    position: relative;
+    background: linear-gradient(135deg, rgba(93, 64, 55, 0.92), rgba(78, 52, 46, 0.88)),
                 url('images/background.png');
     background-size: cover;
     background-position: center;
-    height: 85vh;
+    min-height: 88vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: var(--white);
+    overflow: hidden;
+    padding: 40px 8%;
+}
+
+.floaty-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floaty-shapes span {
+    position: absolute;
+    font-size: 2.6rem;
+    opacity: 0.35;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.2));
+}
+
+.floaty {
+    animation: floaty-move 6s ease-in-out infinite;
+}
+
+.floaty-slow {
+    animation-duration: 9s;
+}
+
+.floaty-reverse {
+    animation-direction: alternate-reverse;
+}
+
+@keyframes floaty-move {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(-22px) rotate(8deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    margin-bottom: 15px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    text-shadow: 2px 2px 14px rgba(0,0,0,0.28);
 }
 
 .hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
+    font-size: 1.25rem;
+    margin-bottom: 32px;
+    opacity: 0.92;
 }
 
 .hero-buttons {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 44px;
 }
 
 .btn {
@@ -155,16 +274,16 @@ header {
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     transition: 0.3s;
-    box-shadow: 0 5px 20px rgba(121, 85, 72, 0.4);
+    box-shadow: 0 8px 22px rgba(121, 85, 72, 0.4);
     cursor: pointer;
     border: none;
 }
 
 .btn:hover {
     background-color: var(--accent);
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 .btn:active {
@@ -186,53 +305,102 @@ header {
 
 .hero-stats {
     display: flex;
-    gap: 50px;
+    gap: 16px;
     justify-content: center;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 .stat-item {
     text-align: center;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius-md);
+    padding: 16px 28px;
 }
 
 .stat-number {
     display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--kuning);
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     opacity: 0.9;
 }
 
+/* ===== PAGE BANNER (inner pages) ===== */
+.page-banner {
+    position: relative;
+    background: linear-gradient(135deg, rgba(93, 64, 55, 0.95), rgba(78, 52, 46, 0.9)),
+                url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    padding: 80px 8% 60px;
+    overflow: hidden;
+}
+
+.page-banner h1 {
+    font-weight: 700;
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.page-banner p {
+    font-size: 1.05rem;
+    opacity: 0.92;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== FEATURES ===== */
 .features {
     background-color: var(--white);
     padding: 60px 8%;
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
     flex-wrap: wrap;
     text-align: center;
 }
 
 .feature-item {
     flex: 1;
-    min-width: 200px;
+    min-width: 220px;
     max-width: 300px;
+    background: var(--cream);
+    border-radius: var(--radius-md);
+    padding: 30px 22px;
+    transition: 0.35s;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-soft);
 }
 
 .feature-item span {
-    font-size: 3rem;
+    font-size: 2.6rem;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .feature-item h4 {
     color: var(--primary);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
+/* ===== MENU SECTION ===== */
 .menu-section {
     padding: 80px 8%;
     text-align: center;
@@ -240,7 +408,8 @@ header {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-weight: 700;
+    font-size: 2.4rem;
     margin-bottom: 15px;
     color: var(--primary);
     position: relative;
@@ -258,14 +427,14 @@ header {
 }
 
 .section-desc {
-    color: #666;
+    color: #6b6b6b;
     margin-bottom: 40px;
 }
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    gap: 36px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -325,7 +494,7 @@ header {
     top: -6px;
     right: -6px;
     background: var(--kuning);
-    color: var(--dark);
+    color: var(--white);
     font-size: 0.7rem;
     font-weight: 700;
     min-width: 20px;
@@ -356,7 +525,7 @@ header {
 
 .riwayat-modal-box {
     background: var(--white);
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     padding: 30px;
     max-width: 420px;
     width: 100%;
@@ -375,7 +544,8 @@ header {
 
 .riwayat-modal-header h3 {
     color: var(--primary);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -404,7 +574,7 @@ header {
 
 .riwayat-item {
     background: var(--cream);
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 12px 14px;
     margin-bottom: 12px;
 }
@@ -448,12 +618,13 @@ header {
     color: var(--white);
 }
 
+/* ===== CARDS ===== */
 .card {
     background: var(--white);
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: 0.4s ease;
+    box-shadow: var(--shadow-soft);
+    transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -461,8 +632,8 @@ header {
 }
 
 .card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 20px 40px rgba(121, 85, 72, 0.2);
+    transform: translateY(-12px) rotate(-0.5deg);
+    box-shadow: var(--shadow-lift);
 }
 
 .card img {
@@ -479,13 +650,14 @@ header {
 }
 
 .card-body h3 {
-    font-size: 1.4rem;
+    font-weight: 600;
+    font-size: 1.3rem;
     color: var(--dark);
     margin-bottom: 10px;
 }
 
 .card-body p {
-    color: #666;
+    color: #6b6b6b;
     font-size: 0.95rem;
     margin-bottom: 10px;
 }
@@ -496,12 +668,13 @@ header {
     font-weight: 700;
     margin-bottom: 10px;
     background-color: var(--kuningMuda);
-    padding: 5px 10px;
-    border-radius: 5px;
+    padding: 5px 12px;
+    border-radius: 50px;
     display: inline-block;
 }
 
 .price {
+    font-family: 'Fredoka', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
@@ -537,19 +710,21 @@ header {
     top: 15px;
     right: 15px;
     background-color: var(--kuning);
-    color: var(--dark);
-    padding: 5px 15px;
+    color: var(--white);
+    padding: 6px 16px;
     border-radius: 20px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
+    letter-spacing: 0.3px;
     z-index: 10;
+    box-shadow: 0 4px 10px rgba(217, 123, 79, 0.4);
 }
 
 .badge-new {
-    background-color: var(--kuning);
-    color: var(--dark);
+    background-color: var(--secondary);
 }
 
+/* ===== ABOUT ===== */
 .about-section {
     padding: 80px 8%;
     text-align: center;
@@ -557,7 +732,7 @@ header {
 }
 
 .about-section .section-title {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-bottom: 20px;
     color: var(--primary);
 }
@@ -567,89 +742,182 @@ header {
     margin: 0 auto;
     background-color: var(--white);
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    text-align: left;
+    position: relative;
+}
+
+.about-content::before {
+    content: '\201C';
+    font-family: 'Fredoka', sans-serif;
+    position: absolute;
+    top: -6px;
+    left: 24px;
+    font-size: 5rem;
+    color: var(--kuningMuda);
+    line-height: 1;
 }
 
 .about-content p {
-    color: #333;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    color: #444;
+    font-size: 1.08rem;
+    line-height: 1.85;
 }
 
+.about-stats {
+    max-width: 900px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.about-stat-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 26px 16px;
+    box-shadow: var(--shadow-soft);
+    transition: 0.35s;
+}
+
+.about-stat-card:hover {
+    transform: translateY(-8px);
+}
+
+.about-stat-card .num {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--primary);
+    display: block;
+}
+
+.about-stat-card .label {
+    color: #6b6b6b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ===== FOOTER ===== */
 footer {
     background: linear-gradient(135deg, var(--dark), #1a0f0d);
     color: var(--white);
-    padding: 60px 8% 20px;
-    text-align: center;
+    padding: 70px 8% 0;
+    position: relative;
 }
 
 .footer-container {
-    max-width: 600px;
+    max-width: 1100px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.2fr;
+    gap: 40px;
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+.footer-col-brand {
+    display: flex;
+    flex-direction: column;
 }
 
 .footer-logo img {
-    height: 60px;
+    height: 55px;
     margin-bottom: 15px;
 }
 
 footer h3 {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
 footer h3 .brand-orange {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    color: #b9b9b9;
+    color: #d8b9a4;
 }
 
 footer h3 .brand-coklat {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    color: #8D6E63;
+    color: #a8785e;
 }
 
 .footer-desc {
-    opacity: 0.9;
-    margin-bottom: 25px;
+    opacity: 0.85;
+    margin-bottom: 20px;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+}
+
+.footer-heading {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 18px;
+    color: var(--kuning);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: 0.25s;
+}
+
+.footer-links a:hover {
+    color: var(--kuning);
+    padding-left: 4px;
 }
 
 .contact-info {
-    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .contact-info p {
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .contact-info i {
-    color: var(--primary);
-    margin-right: 10px;
+    color: var(--kuning);
+    margin-top: 3px;
 }
 
 .social-links {
-    margin: 20px 0;
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
 }
 
 .social-links a {
-    display: inline-block;
-    width: 45px;
-    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     background-color: rgba(255,255,255,0.1);
     color: var(--white);
     border-radius: 50%;
-    margin: 0 10px;
-    line-height: 45px;
     transition: 0.3s;
     text-decoration: none;
 }
 
 .social-links a:hover {
-    background-color: var(--primary);
+    background-color: var(--kuning);
     transform: translateY(-5px);
 }
 
@@ -658,136 +926,14 @@ footer h3 .brand-coklat {
 }
 
 .footer-bottom {
-    margin-top: 40px;
-    padding-top: 20px;
+    padding: 22px 0;
     border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-.keranjang-section {
-    padding: 30px 8%;
-    background: var(--white);
+    font-size: 0.88rem;
+    color: #b3a49c;
     text-align: center;
-    margin: 40px 8%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-.keranjang-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--cream);
-}
-
-.keranjang-header h2 {
-    color: var(--primary);
-    font-size: 1.5rem;
-}
-
-#keranjang-count {
-    background: var(--primary);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-.keranjang-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: var(--cream);
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
-
-.btn-hapus {
-    background: var(--secondary);
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn-hapus:hover {
-    background: var(--primary);
-}
-
-.btn-hapus:active {
-    transform: scale(0.95);
-}
-
-.keranjang-total {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-align: right;
-    margin-top: 15px;
-}
-
-.btn-checkout {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    border: none;
-    padding: 15px 40px;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    margin-top: 20px;
-    width: 100%;
-    transition: 0.3s;
-}
-
-.btn-checkout:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
-}
-
-.btn-checkout:active {
-    transform: scale(0.95);
-}
-
-.nav-cart-badge {
-    display: inline-block;
-    background-color: var(--kuning);
-    color: var(--dark);
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 1px 7px;
-    border-radius: 10px;
-    margin-left: 5px;
-    vertical-align: middle;
-}
-
-.page-banner {
-    background: linear-gradient(135deg, rgba(93, 64, 55, 0.95), rgba(78, 52, 46, 0.9)),
-                url('images/background.png');
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    text-align: center;
-    padding: 90px 8% 60px;
-}
-
-.page-banner h1 {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-}
-
-.page-banner p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
+/* ===== CTA SECTION ===== */
 .cta-section {
     background-color: var(--white);
     text-align: center;
@@ -796,15 +942,17 @@ footer h3 .brand-coklat {
 
 .cta-section h2 {
     color: var(--primary);
+    font-weight: 700;
     font-size: 2rem;
     margin-bottom: 10px;
 }
 
 .cta-section p {
-    color: #666;
+    color: #6b6b6b;
     margin-bottom: 25px;
 }
 
+/* ===== CONTACT PAGE ===== */
 .contact-section {
     padding: 80px 8%;
     display: grid;
@@ -816,20 +964,20 @@ footer h3 .brand-coklat {
 
 .contact-card {
     background: var(--white);
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     padding: 35px 20px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    transition: 0.3s;
+    box-shadow: var(--shadow-soft);
+    transition: 0.35s;
 }
 
 .contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(121, 85, 72, 0.2);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lift);
 }
 
 .contact-card i {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     color: var(--primary);
     margin-bottom: 15px;
 }
@@ -837,10 +985,11 @@ footer h3 .brand-coklat {
 .contact-card h4 {
     color: var(--dark);
     margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .contact-card p {
-    color: #666;
+    color: #6b6b6b;
     font-size: 0.95rem;
 }
 
@@ -869,10 +1018,16 @@ footer h3 .brand-coklat {
     padding: 0 8% 80px;
 }
 
+.social-section .social-links {
+    justify-content: center;
+}
+
 .social-section .social-links a {
     background-color: var(--cream);
     color: var(--primary);
     border: 1.5px solid var(--primary);
+    width: 45px;
+    height: 45px;
 }
 
 .social-section .social-links a:hover {
@@ -881,6 +1036,7 @@ footer h3 .brand-coklat {
     border-color: var(--primary);
 }
 
+/* ===== MENU TOOLBAR ===== */
 .menu-toolbar {
     max-width: 1200px;
     margin: 0 auto 40px;
@@ -990,6 +1146,112 @@ footer h3 .brand-coklat {
     font-size: 0.95rem;
 }
 
+/* ===== KERANJANG ===== */
+.keranjang-section {
+    padding: 34px 8%;
+    background: var(--white);
+    text-align: center;
+    margin: 40px 8%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+}
+
+.keranjang-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--cream);
+}
+
+.keranjang-header h2 {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+#keranjang-count {
+    background: var(--primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.keranjang-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background: var(--cream);
+    margin-bottom: 10px;
+    border-radius: 14px;
+}
+
+.btn-hapus {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-hapus:hover {
+    background: var(--primary);
+}
+
+.btn-hapus:active {
+    transform: scale(0.95);
+}
+
+.keranjang-total {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-align: right;
+    margin-top: 15px;
+}
+
+.btn-checkout {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-checkout:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(121, 85, 72, 0.4);
+}
+
+.btn-checkout:active {
+    transform: scale(0.95);
+}
+
+.nav-cart-badge {
+    display: inline-block;
+    background-color: var(--kuning);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 10px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+/* ===== TOAST ===== */
 .toast {
     position: fixed;
     bottom: -80px;
@@ -998,7 +1260,7 @@ footer h3 .brand-coklat {
     background: var(--dark);
     color: var(--white);
     padding: 10px 18px;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 0.85rem;
     font-weight: 600;
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
@@ -1028,8 +1290,15 @@ footer h3 .brand-coklat {
     opacity: 1;
 }
 
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 @media (max-width: 768px) {
-    
+
     nav {
         position: relative;
         display: flex;
@@ -1037,27 +1306,27 @@ footer h3 .brand-coklat {
         align-items: center;
         padding: 0.6rem 4%;
     }
-    
+
     .logo-container {
         gap: 8px;
     }
-    
+
     .logo-img {
         height: 38px !important;
     }
-    
+
     .brand-name {
         display: flex;
         flex-direction: row;
         align-items: center;
         line-height: 1.2;
     }
-    
+
     .brand-name .brand-orange,
     .brand-name .brand-coklat {
         font-size: 1rem !important;
     }
-    
+
     .nav-hamburger {
         display: inline-flex !important;
         align-items: center;
@@ -1102,11 +1371,11 @@ footer h3 .brand-coklat {
         transform: translateX(100%);
         transition: transform 0.3s ease;
     }
-    
+
     .nav-links.nav-open {
         transform: translateX(0);
     }
-    
+
     .nav-links li {
         width: 100%;
     }
@@ -1129,7 +1398,8 @@ footer h3 .brand-coklat {
     }
 
     .nav-panel-title {
-        font-weight: 700;
+        font-family: 'Fredoka', sans-serif;
+        font-weight: 600;
         color: var(--primary);
         font-size: 1rem;
         letter-spacing: 0.2px;
@@ -1148,7 +1418,7 @@ footer h3 .brand-coklat {
     .nav-close-btn:hover {
         color: var(--primary);
     }
-    
+
     .nav-links a {
         display: flex;
         align-items: center;
@@ -1156,6 +1426,7 @@ footer h3 .brand-coklat {
         padding: 13px 18px;
         font-size: 0.9rem !important;
         color: var(--dark);
+        border-radius: 0;
     }
 
     .nav-icon {
@@ -1171,23 +1442,33 @@ footer h3 .brand-coklat {
         color: var(--primary);
         background: var(--kuningMuda);
     }
-    
+
     .nav-links a::after {
         display: none;
     }
-    
+
     .nav-cart-badge {
         display: none !important;
     }
 
+    .marquee-track span {
+        font-size: 0.7rem;
+        padding: 0 14px;
+    }
+
+    .floaty-shapes span {
+        font-size: 1.8rem;
+        opacity: 0.25;
+    }
+
     .hero-content h1 {
-        font-size: 2.5rem !important;
+        font-size: 2.3rem !important;
     }
-    
+
     .hero-content p {
-        font-size: 1.1rem !important;
+        font-size: 1.05rem !important;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
         gap: 10px;
@@ -1197,69 +1478,76 @@ footer h3 .brand-coklat {
         padding: 12px 25px !important;
         font-size: 0.9rem !important;
     }
-    
+
     .btn-outline {
         padding: 10px 23px !important;
         font-size: 0.9rem !important;
     }
-    
+
+    .hero-stats {
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 12px 18px;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+    }
+
     footer {
-        padding: 60px 8% 20px;
+        padding: 50px 6% 0;
     }
-    
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: left;
+    }
+
     .footer-logo img {
-        height: 60px;
+        height: 55px;
     }
-    
-    footer h3, footer h3 .brand-orange, footer h3 .brand-coklat {
-        font-size: 2rem;
+
+    footer h3 {
+        font-size: 1.5rem;
     }
-    
+
     .footer-desc {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
-    
+
     .contact-info p {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
     }
-    
+
     .social-links {
-        margin: 20px 0;
+        margin: 15px 0 5px;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
-    
+
     .social-links a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 45px;
-        height: 45px;
+        width: 42px;
+        height: 42px;
     }
-    
-    .social-links a i {
-        font-size: 1.2rem;
-    }
-    
+
     .footer-bottom {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .page-banner {
-        padding: 70px 5% 40px;
+        padding: 60px 5% 40px;
     }
 
     .page-banner h1 {
-        font-size: 2rem !important;
+        font-size: 1.9rem !important;
     }
 
     .page-banner p {
-        font-size: 0.95rem !important;
-    }
-
-    .nav-cart-badge {
-        display: none !important;
+        font-size: 0.92rem !important;
     }
 
     .menu-header-row {
@@ -1321,7 +1609,7 @@ footer h3 .brand-coklat {
 
     .min-order {
         font-size: 0.65rem !important;
-        padding: 3px 6px;
+        padding: 3px 8px;
         margin-bottom: 6px;
     }
 
@@ -1337,19 +1625,30 @@ footer h3 .brand-coklat {
 
     .badge {
         font-size: 0.6rem;
-        padding: 3px 10px;
+        padding: 4px 10px;
         top: 8px;
         right: 8px;
     }
 
-    .contact-section {
+    .about-content {
+        padding: 25px 20px;
+    }
+
+    .about-stats {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-section {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
         padding: 40px 5% 50px;
     }
 
     .contact-card {
         padding: 20px 12px;
+        min-width: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
     }
 
     .contact-card i {
