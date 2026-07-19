@@ -267,7 +267,11 @@ function setCategory(cat, btnEl) {
 
 function filterMenu() {
     const searchInput = document.getElementById('searchInput');
+    const clearBtn = document.getElementById('searchClearBtn');
     const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+    if (clearBtn) clearBtn.style.display = searchTerm !== '' ? 'flex' : 'none';
+
     const cards = document.querySelectorAll('.product-grid .card');
     let visibleCount = 0;
 
@@ -287,6 +291,15 @@ function filterMenu() {
 
     const noResults = document.getElementById('no-results');
     if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+function clearSearch() {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+    }
+    filterMenu();
 }
 
 let toastTimeout;

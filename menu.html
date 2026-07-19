@@ -54,6 +54,7 @@
             <div class="search-box">
                 <i class="fas fa-search"></i>
                 <input type="text" id="searchInput" placeholder="Cari roti..." oninput="filterMenu()">
+                <button type="button" id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()" style="display:none;" aria-label="Hapus pencarian">&times;</button>
             </div>
             <div class="category-filters">
                 <button class="category-btn active" data-category="all" onclick="setCategory('all', this)">Semua</button>

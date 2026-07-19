@@ -909,7 +909,7 @@ footer h3 .brand-coklat {
 
 .search-box input {
     width: 100%;
-    padding: 12px 16px 12px 40px;
+    padding: 12px 40px 12px 40px;
     border-radius: 50px;
     border: 1.5px solid #e6dcd3;
     font-family: inherit;
@@ -923,6 +923,32 @@ footer h3 .brand-coklat {
 .search-box input:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.15);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #e6dcd3;
+    border: none;
+    color: var(--dark);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: 0.2s;
+}
+
+.search-clear-btn:hover {
+    background: var(--primary);
+    color: var(--white);
 }
 
 .category-filters {
@@ -971,20 +997,21 @@ footer h3 .brand-coklat {
     transform: translateX(-50%);
     background: var(--dark);
     color: var(--white);
-    padding: 14px 26px;
+    padding: 10px 20px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     z-index: 3000;
     opacity: 0;
-    transition: all 0.35s ease;
+    transition: bottom 0.2s ease, opacity 0.2s ease;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     max-width: 90%;
     text-align: center;
     pointer-events: none;
+    white-space: nowrap;
 }
 
 .toast::before {
@@ -992,10 +1019,11 @@ footer h3 .brand-coklat {
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
     color: var(--kuning);
+    font-size: 0.9rem;
 }
 
 .toast.toast-show {
-    bottom: 30px;
+    bottom: 20px;
     opacity: 1;
 }
 
@@ -1362,8 +1390,14 @@ footer h3 .brand-coklat {
     }
 
     .toast {
+        font-size: 0.75rem;
+        padding: 8px 16px;
+        gap: 6px;
+        max-width: 88%;
+        white-space: normal;
+    }
+
+    .toast::before {
         font-size: 0.8rem;
-        padding: 12px 20px;
-        max-width: 85%;
     }
 }
